@@ -1,0 +1,4118 @@
+{
+  "name": "6.8寸标准油烟机",
+  "model": "standard",
+  "AllFunctions": [
+    {
+      "Id": 1,
+      "No": 1,
+      "Name": "STERILIZER_DOOR_LOCK_UP",
+      "Title": "消毒柜柜门",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 2,
+      "No": 2,
+      "Name": "LEFT_FIRE",
+      "Title": "左灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 3,
+      "No": 3,
+      "Name": "RIGHT_FIRE",
+      "Title": "右灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 4,
+      "No": 4,
+      "Name": "CENTER_FIRE",
+      "Title": "中间灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 5,
+      "No": 5,
+      "Name": "FIRST_FLAP_DOOR_OPEN",
+      "Title": "翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 6,
+      "No": 6,
+      "Name": "FIRST_FLAP_DOOR_CLOSE",
+      "Title": "翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 7,
+      "No": 7,
+      "Name": "SMART_WASH_SENSOR",
+      "Title": "智能清洗传感器",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "油杯满了"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 8,
+      "No": 8,
+      "Name": "LINKAGE_SIGNAL",
+      "Title": "联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "灶具没有点火"
+        },
+        {
+          "data": 1,
+          "desc": "灶具已点火"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 9,
+      "No": 9,
+      "Name": "LEFT_FIRE_TEMP",
+      "Title": "左防火墙温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 10,
+      "No": 10,
+      "Name": "RIGHT_FIRE_TEMP",
+      "Title": "右防火墙温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 11,
+      "No": 11,
+      "Name": "ALTERNATING_CURRENT",
+      "Title": "交流电",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "交流电高压或欠压"
+        },
+        {
+          "data": 1,
+          "desc": "交流电正常"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 12,
+      "No": 12,
+      "Name": "DRY_BURN",
+      "Title": "防干烧",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "温度超过干烧温度"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 13,
+      "No": 13,
+      "Name": "SCEND_FLAP_DOOR_OPEN",
+      "Title": "第二路翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "翻板门转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 14,
+      "No": 14,
+      "Name": "SCEND_FLAP_DOOR_CLOSE",
+      "Title": "第二路翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "翻板门转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 15,
+      "No": 15,
+      "Name": "FIRST_HOARE_SIGNAL",
+      "Title": "第一位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 16,
+      "No": 16,
+      "Name": "SCEND_HOARE_SIGNAL",
+      "Title": "第二位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 17,
+      "No": 17,
+      "Name": "THRID_HOARE_SIGNAL",
+      "Title": "第三位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 18,
+      "No": 18,
+      "Name": "STEAMER_LINKAGE_SIGNAL",
+      "Title": "蒸箱联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "蒸箱联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 19,
+      "No": 19,
+      "Name": "OVEN_LINKAGE_SIGNAL",
+      "Title": "烤箱联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "烤箱联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 20,
+      "No": 20,
+      "Name": "LAMPBLACK_LINKAGE_SIGNAL",
+      "Title": "油烟机联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "油烟机联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 21,
+      "No": 21,
+      "Name": "ELECT_LINKAGE_SIGNAL",
+      "Title": "电磁炉联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "电磁炉开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 22,
+      "No": 22,
+      "Name": "STEAMER_LOCK",
+      "Title": "蒸箱门锁",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "开"
+        },
+        {
+          "data": 1,
+          "desc": "关"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 23,
+      "No": 23,
+      "Name": "STEAMER_WATER_BOX",
+      "Title": "蒸箱水箱缺水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "缺水"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 24,
+      "No": 24,
+      "Name": "STEAMER_IN_TEMP",
+      "Title": "蒸箱箱体温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 25,
+      "No": 25,
+      "Name": "STEAMER_OUT_TEMP",
+      "Title": "蒸箱保温层温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 26,
+      "No": 26,
+      "Name": "WASH",
+      "Title": "清洗",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 27,
+      "No": 27,
+      "Name": "LOW_LIGHT",
+      "Title": "12V照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 28,
+      "No": 28,
+      "Name": "HIGH_LIGHT",
+      "Title": "220V照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 29,
+      "No": 29,
+      "Name": "SUPER_WIND",
+      "Title": "爆炒风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "BIG_WIND",
+              "val": 0
+            },
+            {
+              "func": "MIDDLE_WIND",
+              "val": 0
+            },
+            {
+              "func": "SMALL_WIND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 30,
+      "No": 30,
+      "Name": "BIG_WIND",
+      "Title": "强风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "SUPER_WIND",
+              "val": 0
+            },
+            {
+              "func": "MIDDLE_WIND",
+              "val": 0
+            },
+            {
+              "func": "SMALL_WIND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 31,
+      "No": 31,
+      "Name": "MIDDLE_WIND",
+      "Title": "中风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "BIG_WIND",
+              "val": 0
+            },
+            {
+              "func": "SUPER_WIND",
+              "val": 0
+            },
+            {
+              "func": "SMALL_WIND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 32,
+      "No": 32,
+      "Name": "SMALL_WIND",
+      "Title": "弱风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "BIG_WIND",
+              "val": 0
+            },
+            {
+              "func": "MIDDLE_WIND",
+              "val": 0
+            },
+            {
+              "func": "SUPER_WIND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 33,
+      "No": 33,
+      "Name": "THRID_HOT_COUPLE",
+      "Title": "第三路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 34,
+      "No": 34,
+      "Name": "SCEND_HOT_COUPLE",
+      "Title": "第二路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 35,
+      "No": 35,
+      "Name": "FIRST_HOT_COUPLE",
+      "Title": "第一路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 36,
+      "No": 36,
+      "Name": "FLAP_DOOR_OPEN",
+      "Title": "翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 37,
+      "No": 37,
+      "Name": "FLAP_DOOR_CLOSE",
+      "Title": "翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 38,
+      "No": 38,
+      "Name": "SECEND_DRY",
+      "Title": "第二路烘干",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 39,
+      "No": 39,
+      "Name": "FIRST_DRY",
+      "Title": "第一路烘干",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 40,
+      "No": 40,
+      "Name": "DISINFECTION",
+      "Title": "消毒",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 41,
+      "No": 41,
+      "Name": "DRAINAGE",
+      "Title": "排水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 42,
+      "No": 42,
+      "Name": "SMART_WASH",
+      "Title": "智能清洗",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 43,
+      "No": 43,
+      "Name": "KEEP_HOT",
+      "Title": "保温",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 44,
+      "No": 44,
+      "Name": "BACK_LIGHT",
+      "Title": "背光灯",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 45,
+      "No": 45,
+      "Name": "STRILIZER_ALERT_SOUND",
+      "Title": "消毒柜报警声",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "STRILIZER_OPEN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_SHUTDOWN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_PRESS_SOUND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 46,
+      "No": 46,
+      "Name": "STRILIZER_OPEN_SOUND",
+      "Title": "消毒柜开机声音",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "STRILIZER_SHUTDOWN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_PRESS_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_ALERT_SOUND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 47,
+      "No": 47,
+      "Name": "STRILIZER_SHUTDOWN_SOUND",
+      "Title": "消毒柜关机机声音",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "STRILIZER_OPEN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_PRESS_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_ALERT_SOUND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 48,
+      "No": 48,
+      "Name": "STRILIZER_PRESS_SOUND",
+      "Title": "按键声",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开",
+          "mutex": [
+            {
+              "func": "STRILIZER_SHUTDOWN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_OPEN_SOUND",
+              "val": 0
+            },
+            {
+              "func": "STRILIZER_ALERT_SOUND",
+              "val": 0
+            }
+          ]
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 49,
+      "No": 49,
+      "Name": "FIRST_SCREEN",
+      "Title": "第一路屏幕",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 50,
+      "No": 50,
+      "Name": "SECEND_SCREEN",
+      "Title": "第二路屏幕",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 51,
+      "No": 51,
+      "Name": "RESERVE1",
+      "Title": "预留",
+      "Values": [],
+      "Length": 22,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 52,
+      "No": 52,
+      "Name": "STEAMER_HOT_TUBE",
+      "Title": "蒸箱加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 53,
+      "No": 53,
+      "Name": "STEAMER_COLD_WIND",
+      "Title": "蒸箱冷风机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 54,
+      "No": 54,
+      "Name": "STEAMER_IN_HOT_TUBE",
+      "Title": "蒸箱保温层加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 55,
+      "No": 55,
+      "Name": "STEAMER_WATER_PUMP",
+      "Title": "蒸箱水泵输出",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 56,
+      "No": 56,
+      "Name": "STEAMER_LIGHT",
+      "Title": "蒸箱照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 57,
+      "No": 57,
+      "Name": "RESERVE2",
+      "Title": "预留",
+      "Values": [],
+      "Length": 10,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 58,
+      "No": 58,
+      "Name": "STEAMER_TEMP",
+      "Title": "蒸箱温度设定",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true
+    },
+    {
+      "Id": 59,
+      "No": 59,
+      "Name": "RESERVE3",
+      "Title": "预留",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 60,
+      "No": 60,
+      "Name": "RESERVE4",
+      "Title": "预留",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 61,
+      "No": 61,
+      "Name": "STEAMER_MODEL",
+      "Title": "蒸箱工作模式",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 62,
+      "No": 62,
+      "Name": "STEAMER_PAN_PROBE",
+      "Title": "蒸箱底盘探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 63,
+      "No": 63,
+      "Name": "STEAMER_OUT_TEMP_PROBE",
+      "Title": "蒸箱保温层探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 64,
+      "No": 64,
+      "Name": "STEAMER_IN_TEMP_PROBE",
+      "Title": "蒸箱箱体探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 65,
+      "No": 65,
+      "Name": "STEAMER_LOCK_STATUS",
+      "Title": "蒸箱柜门状态",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "打开"
+        },
+        {
+          "data": 1,
+          "desc": "关闭"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 66,
+      "No": 66,
+      "Name": "OVEN_DOOR",
+      "Title": "烤箱门控",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关闭"
+        },
+        {
+          "data": 1,
+          "desc": "打开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 67,
+      "No": 67,
+      "Name": "RESERVE5",
+      "Title": "预留",
+      "Values": [],
+      "Length": 7,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 68,
+      "No": 68,
+      "Name": "OVEN_IN_TEMP",
+      "Title": "烤箱箱体温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 69,
+      "No": 69,
+      "Name": "RESERVE6",
+      "Title": "预留",
+      "Values": [],
+      "Length": 16,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 70,
+      "No": 70,
+      "Name": "OVEN_UP_OUT_HOT_TUBE",
+      "Title": "烤箱上外加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 71,
+      "No": 71,
+      "Name": "OVEN_UP_IN_HOT_TUBE",
+      "Title": "烤箱上里加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 72,
+      "No": 72,
+      "Name": "OVEN_DOWN_HOT_TUBE",
+      "Title": "烤箱下加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 73,
+      "No": 73,
+      "Name": "OVEN_BACK_HOT_TUBE",
+      "Title": "烤箱背部加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 74,
+      "No": 74,
+      "Name": "OVEN_UP_HOT_TUBE",
+      "Title": "烤箱上加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 75,
+      "No": 75,
+      "Name": "OVEN_ROTOR_MOTOR",
+      "Title": "烤箱转子电机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 76,
+      "No": 76,
+      "Name": "OVEN_COLD_WIND",
+      "Title": "烤箱冷却风机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 77,
+      "No": 77,
+      "Name": "OVEN_LIGHT",
+      "Title": "烤箱照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 78,
+      "No": 78,
+      "Name": "OVEN_MODEL",
+      "Title": "烤箱烧烤模式值",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 79,
+      "No": 79,
+      "Name": "OVEN_TEMP",
+      "Title": "烤箱温度值",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 80,
+      "No": 80,
+      "Name": "STERILIZER_DOOR_LOCK_DOWN",
+      "Title": "消毒柜柜门",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 81,
+      "No": 81,
+      "Name": "BLOCKING_CURRENT",
+      "Title": "转堵电流",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 16,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 82,
+      "No": 82,
+      "Name": "STEAMER_TEMP_NOT_REACHED",
+      "Title": "蒸箱工作温度未达到",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "异常"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 83,
+      "No": 83,
+      "Name": "STEAMER_CHASSIS_ADD_WATER",
+      "Title": "蒸箱底盘加水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "没加水"
+        },
+        {
+          "data": 1,
+          "desc": "加水"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 84,
+      "No": 84,
+      "Name": "STEAMER_HEATING_PLATE",
+      "Title": "发热盘温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    }
+  ],
+  "UpFunctions": [
+    {
+      "Id": 1,
+      "No": 1,
+      "Name": "STERILIZER_DOOR_LOCK_UP",
+      "Title": "消毒柜柜门",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 2,
+      "No": 2,
+      "Name": "LEFT_FIRE",
+      "Title": "左灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 3,
+      "No": 3,
+      "Name": "RIGHT_FIRE",
+      "Title": "右灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 4,
+      "No": 4,
+      "Name": "CENTER_FIRE",
+      "Title": "中间灶",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 5,
+      "No": 5,
+      "Name": "FIRST_FLAP_DOOR_OPEN",
+      "Title": "翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 6,
+      "No": 6,
+      "Name": "FIRST_FLAP_DOOR_CLOSE",
+      "Title": "翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 7,
+      "No": 7,
+      "Name": "SMART_WASH_SENSOR",
+      "Title": "智能清洗传感器",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "油杯满了"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 8,
+      "No": 8,
+      "Name": "LINKAGE_SIGNAL",
+      "Title": "联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "灶具没有点火"
+        },
+        {
+          "data": 1,
+          "desc": "灶具已点火"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 9,
+      "No": 9,
+      "Name": "LEFT_FIRE_TEMP",
+      "Title": "左防火墙温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 10,
+      "No": 10,
+      "Name": "RIGHT_FIRE_TEMP",
+      "Title": "右防火墙温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 11,
+      "No": 11,
+      "Name": "ALTERNATING_CURRENT",
+      "Title": "交流电",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "交流电高压或欠压"
+        },
+        {
+          "data": 1,
+          "desc": "交流电正常"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 12,
+      "No": 12,
+      "Name": "DRY_BURN",
+      "Title": "防干烧",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "温度超过干烧温度"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 13,
+      "No": 13,
+      "Name": "SCEND_FLAP_DOOR_OPEN",
+      "Title": "第二路翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "翻板门转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 14,
+      "No": 14,
+      "Name": "SCEND_FLAP_DOOR_CLOSE",
+      "Title": "第二路翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "翻板门转堵"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 15,
+      "No": 15,
+      "Name": "FIRST_HOARE_SIGNAL",
+      "Title": "第一位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 16,
+      "No": 16,
+      "Name": "SCEND_HOARE_SIGNAL",
+      "Title": "第二位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 17,
+      "No": 17,
+      "Name": "THRID_HOARE_SIGNAL",
+      "Title": "第三位霍尔信号",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 18,
+      "No": 18,
+      "Name": "RESERVE1",
+      "Title": "预留",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 19,
+      "No": 19,
+      "Name": "STEAMER_LINKAGE_SIGNAL",
+      "Title": "蒸箱联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "蒸箱联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 20,
+      "No": 20,
+      "Name": "OVEN_LINKAGE_SIGNAL",
+      "Title": "烤箱联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "烤箱联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 21,
+      "No": 21,
+      "Name": "LAMPBLACK_LINKAGE_SIGNAL",
+      "Title": "油烟机联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "油烟机联动开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 22,
+      "No": 22,
+      "Name": "ELECT_LINKAGE_SIGNAL",
+      "Title": "电磁炉联动信号",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "无联动"
+        },
+        {
+          "data": 1,
+          "desc": "电磁炉开启"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 23,
+      "No": 23,
+      "Name": "RESERVE2",
+      "Title": "预留",
+      "Values": [],
+      "Length": 20,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 24,
+      "No": 24,
+      "Name": "STEAMER_LOCK_STATUS",
+      "Title": "蒸箱门锁状态",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "开"
+        },
+        {
+          "data": 1,
+          "desc": "关"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 25,
+      "No": 25,
+      "Name": "STEAMER_WATER_BOX",
+      "Title": "蒸箱水箱缺水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "缺水"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 26,
+      "No": 26,
+      "Name": "STEAMER_CHASSIS_ADD_WATER",
+      "Title": "蒸箱底盘加水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "没加水"
+        },
+        {
+          "data": 1,
+          "desc": "加水"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 27,
+      "No": 27,
+      "Name": "RESERVE3",
+      "Title": "预留",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 28,
+      "No": 28,
+      "Name": "STEAMER_TEMP_NOT_REACHED",
+      "Title": "蒸箱工作温度未达到",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "异常"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 29,
+      "No": 29,
+      "Name": "STEAMER_PAN_PROBE",
+      "Title": "蒸箱底盘探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 30,
+      "No": 30,
+      "Name": "STEAMER_OUT_TEMP_PROBE",
+      "Title": "蒸箱保温层探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 31,
+      "No": 31,
+      "Name": "STEAMER_IN_TEMP_PROBE",
+      "Title": "蒸箱箱体探针",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "正常"
+        },
+        {
+          "data": 1,
+          "desc": "松动"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 32,
+      "No": 32,
+      "Name": "STEAMER_IN_TEMP",
+      "Title": "蒸箱箱体温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 33,
+      "No": 33,
+      "Name": "STEAMER_OUT_TEMP",
+      "Title": "蒸箱保温层温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 34,
+      "No": 34,
+      "Name": "STEAMER_HEATING_PLATE",
+      "Title": "发热盘温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 35,
+      "No": 35,
+      "Name": "RESERVE4",
+      "Title": "预留",
+      "Values": [],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 36,
+      "No": 36,
+      "Name": "OVEN_DOOR",
+      "Title": "烤箱门控",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关闭"
+        },
+        {
+          "data": 1,
+          "desc": "打开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 37,
+      "No": 37,
+      "Name": "RESERVE5",
+      "Title": "预留",
+      "Values": [],
+      "Length": 7,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 38,
+      "No": 38,
+      "Name": "OVEN_IN_TEMP",
+      "Title": "烤箱箱体温度",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    },
+    {
+      "Id": 39,
+      "No": 39,
+      "Name": "RESERVE6",
+      "Title": "预留",
+      "Values": [],
+      "Length": 16,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": true
+    }
+  ],
+  "DownFunctions": [
+    {
+      "Id": 1,
+      "No": 1,
+      "Name": "WASH",
+      "Title": "清洗",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 2,
+      "No": 2,
+      "Name": "LOW_LIGHT",
+      "Title": "12V照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 3,
+      "No": 3,
+      "Name": "HIGH_LIGHT",
+      "Title": "220V照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 4,
+      "No": 4,
+      "Name": "STERILIZER_DOOR_LOCK_DOWN",
+      "Title": "消毒柜门锁",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 5,
+      "No": 5,
+      "Name": "SUPER_WIND",
+      "Title": "爆炒风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 6,
+      "No": 6,
+      "Name": "BIG_WIND",
+      "Title": "强风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 7,
+      "No": 7,
+      "Name": "MIDDLE_WIND",
+      "Title": "中风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 8,
+      "No": 8,
+      "Name": "SMALL_WIND",
+      "Title": "弱风",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 9,
+      "No": 9,
+      "Name": "THRID_HOT_COUPLE",
+      "Title": "第三路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 10,
+      "No": 10,
+      "Name": "SCEND_HOT_COUPLE",
+      "Title": "第二路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 11,
+      "No": 11,
+      "Name": "FIRST_HOT_COUPLE",
+      "Title": "第一路热电偶",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 12,
+      "No": 12,
+      "Name": "FLAP_DOOR_OPEN",
+      "Title": "翻板门打开",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 13,
+      "No": 13,
+      "Name": "FLAP_DOOR_CLOSE",
+      "Title": "翻板门关闭",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 14,
+      "No": 14,
+      "Name": "SECEND_DRY",
+      "Title": "第二路烘干",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 15,
+      "No": 15,
+      "Name": "FIRST_DRY",
+      "Title": "第一路烘干",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 16,
+      "No": 16,
+      "Name": "DISINFECTION",
+      "Title": "消毒",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 17,
+      "No": 17,
+      "Name": "DRAINAGE",
+      "Title": "排水",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 18,
+      "No": 18,
+      "Name": "SMART_WASH",
+      "Title": "智能清洗",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 19,
+      "No": 19,
+      "Name": "KEEP_HOT",
+      "Title": "保温",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 20,
+      "No": 20,
+      "Name": "BACK_LIGHT",
+      "Title": "背光灯",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 21,
+      "No": 21,
+      "Name": "STRILIZER_ALERT_SOUND",
+      "Title": "消毒柜报警声",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 22,
+      "No": 22,
+      "Name": "STRILIZER_OPEN_SOUND",
+      "Title": "消毒柜开机声音",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 23,
+      "No": 23,
+      "Name": "STRILIZER_SHUTDOWN_SOUND",
+      "Title": "消毒柜关机机声音",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 24,
+      "No": 24,
+      "Name": "STRILIZER_PRESS_SOUND",
+      "Title": "按键声",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": false,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 25,
+      "No": 25,
+      "Name": "FIRST_SCREEN",
+      "Title": "第一路屏幕",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 26,
+      "No": 26,
+      "Name": "SECEND_SCREEN",
+      "Title": "第二路屏幕",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 27,
+      "No": 27,
+      "Name": "RESERVE1",
+      "Title": "预留",
+      "Values": [],
+      "Length": 14,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 28,
+      "No": 28,
+      "Name": "STEAMER_MODEL",
+      "Title": "蒸箱工作模式",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 29,
+      "No": 29,
+      "Name": "STEAMER_HOT_TUBE",
+      "Title": "蒸箱加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 30,
+      "No": 30,
+      "Name": "STEAMER_COLD_WIND",
+      "Title": "蒸箱冷风机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 31,
+      "No": 31,
+      "Name": "STEAMER_IN_HOT_TUBE",
+      "Title": "蒸箱保温层加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 32,
+      "No": 32,
+      "Name": "STEAMER_WATER_PUMP",
+      "Title": "蒸箱水泵输出",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 33,
+      "No": 33,
+      "Name": "STEAMER_LIGHT",
+      "Title": "蒸箱照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 34,
+      "No": 34,
+      "Name": "STEAMER_LOCK",
+      "Title": "蒸箱门锁",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 35,
+      "No": 35,
+      "Name": "RESERVE2",
+      "Title": "预留",
+      "Values": [],
+      "Length": 10,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 36,
+      "No": 36,
+      "Name": "STEAMER_TEMP",
+      "Title": "蒸箱温度设定",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 37,
+      "No": 37,
+      "Name": "RESERVE3",
+      "Title": "预留",
+      "Values": [],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 38,
+      "No": 38,
+      "Name": "OVEN_UP_OUT_HOT_TUBE",
+      "Title": "烤箱上外加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 39,
+      "No": 39,
+      "Name": "OVEN_UP_IN_HOT_TUBE",
+      "Title": "烤箱上里加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 40,
+      "No": 40,
+      "Name": "OVEN_DOWN_HOT_TUBE",
+      "Title": "烤箱下加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 41,
+      "No": 41,
+      "Name": "OVEN_BACK_HOT_TUBE",
+      "Title": "烤箱背部加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 42,
+      "No": 42,
+      "Name": "OVEN_UP_HOT_TUBE",
+      "Title": "烤箱上加热管",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 43,
+      "No": 43,
+      "Name": "OVEN_ROTOR_MOTOR",
+      "Title": "烤箱转子电机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 44,
+      "No": 44,
+      "Name": "OVEN_COLD_WIND",
+      "Title": "烤箱冷却风机",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 45,
+      "No": 45,
+      "Name": "RESERVE4",
+      "Title": "预留",
+      "Values": [],
+      "Length": 1,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 46,
+      "No": 46,
+      "Name": "OVEN_LIGHT",
+      "Title": "烤箱照明",
+      "Values": [
+        0,
+        1
+      ],
+      "Length": 1,
+      "Value_des": [
+        {
+          "data": 0,
+          "desc": "关"
+        },
+        {
+          "data": 1,
+          "desc": "开"
+        }
+      ],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 47,
+      "No": 47,
+      "Name": "RESERVE5",
+      "Title": "预留",
+      "Values": [],
+      "Length": 7,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 48,
+      "No": 48,
+      "Name": "OVEN_MODEL",
+      "Title": "烤箱烧烤模式值",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 49,
+      "No": 49,
+      "Name": "OVEN_TEMP",
+      "Title": "烤箱温度值",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 8,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 50,
+      "No": 50,
+      "Name": "BLOCKING_CURRENT",
+      "Title": "转堵电流",
+      "Values": [
+        0,
+        255
+      ],
+      "Length": 16,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    },
+    {
+      "Id": 51,
+      "No": 51,
+      "Name": "RESERVE6",
+      "Title": "预留",
+      "Values": [],
+      "Length": 40,
+      "Value_des": [],
+      "Cur_Value": 0,
+      "Last_Value": 0,
+      "Cloud_Value": 0,
+      "Value_Change": true,
+      "No_Change_Notify": false
+    }
+  ],
+  "PCFrames": [
+    {
+      "Pid": 1,
+      "Length": 1,
+      "Ptype": "CmdHead",
+      "CmdHead": {
+        "Send": "AA",
+        "Response": "AA"
+      }
+    },
+    {
+      "Pid": 2,
+      "Length": 1,
+      "Ptype": "CmdLength",
+      "PCmdLength": {
+        "DownCmdLength": 25,
+        "UpCmdLength": 20
+      }
+    },
+    {
+      "Pid": 3,
+      "Length": 21,
+      "Ptype": "CmdDownData"
+    },
+    {
+      "Pid": 4,
+      "Length": 16,
+      "Ptype": "CmdUpData"
+    },
+    {
+      "Pid": 5,
+      "Length": 1,
+      "Ptype": "CheckSum",
+      "CheckSum": {
+        "UpStartPid": 1,
+        "UpEndPid": 18,
+        "DownStartPid": 1,
+        "DownEndPid": 23,
+        "Type": "CRC8"
+      }
+    },
+    {
+      "Pid": 6,
+      "Length": 1,
+      "Ptype": "CmdFooter",
+      "CmdFooter": {
+        "Send": "55",
+        "Response": "55"
+      }
+    }
+  ],
+  "PCloudControl": {
+    "SocketUrl": "s71.53iq.com",
+    "SocketPort": 2502,
+    "SocketKey": "0E0R0DKz"
+  },
+  "PTConfig": {
+    "SendHeart": true,
+    "HeartFrequency": 1000,
+    "SupportAllSerial": true,
+    "ResendInterval": 0,
+    "ResendTimes": 0,
+    "SupportSingleContorl": false,
+    "SendResponse": true,
+    "IsStandard": true,
+    "AnalyzeData": true,
+    "IsReSend": false,
+    "IsChangeStatusSelf": true,
+    "SerialName": "/dev/ttyS0",
+    "SerialBaudrate": "9600",
+    "SerialCsize": 8,
+    "SerialParity": -1,
+    "SerialStopBits": 1,
+    "SupportFrameType": false,
+    "IsSupportCloud": false
+  }
+}
