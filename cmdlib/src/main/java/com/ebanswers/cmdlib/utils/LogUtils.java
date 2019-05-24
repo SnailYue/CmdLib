@@ -15,27 +15,34 @@ import static java.util.Locale.getDefault;
 public class LogUtils {
     public static boolean DEBUG = true;
     public final static String TAG = "Command";
+
     public static void setDebug(boolean flag) {
         DEBUG = flag;
     }
 
-    public static void log(String message) {
-        if (TextUtils.isEmpty(message)) return;
+    public static void d(String message) {
+        if (TextUtils.isEmpty(message)) {
+            return;
+        }
         if (DEBUG) {
             Log.d(TAG, message);
         }
     }
-    public static void err(String message) {
-        if (TextUtils.isEmpty(message)) return;
+
+    public static void e(String message) {
+        if (TextUtils.isEmpty(message)) {
+            return;
+        }
         if (DEBUG) {
             Log.e(TAG, message);
         }
     }
+
     public static void log(String message, Object... args) {
-        log(format(getDefault(), message+":%s", args));
+        log(format(getDefault(), message + ":%s", args));
     }
 
-    public static void log(Throwable throwable) {
+    public static void w(Throwable throwable) {
         Log.w(TAG, throwable);
     }
 

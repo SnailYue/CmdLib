@@ -3,6 +3,7 @@ package com.ebanswers.cmdlib;
 import android.content.Context;
 import android.util.Log;
 
+import com.ebanswers.cmdlib.callback.CmdListener;
 import com.ebanswers.cmdlib.cloud.CloudClient;
 import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
@@ -27,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 import android_serialport_api.SerialUtil;
 
 import static com.ebanswers.cmdlib.utils.LogUtils.TAG;
-import static com.ebanswers.cmdlib.utils.LogUtils.log;
 
 /**
  * Created by Snail on 2018/10/17.
@@ -44,6 +44,7 @@ public class Command {
     private static byte[] dataResult;
     private static int sum = 0;
     private volatile Future futureHeart;
+    private CmdListener cmdListener;
 
     public Command() {
         protocolFactory = new ProtocolFactory();
@@ -113,7 +114,7 @@ public class Command {
                      * 帧头校验及帧长度校验
                      */
                     if (dataResult[0] == ProtocolFactory.getFrameHead()[0] && sum == protocolFactory.mFrameUpAllLength) {
-                        parseData(var1, dataResult);
+                        parseData(sum, dataResult);
                         sum = 0;
                     } else if (dataResult[0] != ProtocolFactory.getFrameHead()[0]) {
                         sum = 0;
@@ -141,6 +142,9 @@ public class Command {
             }
             if (protocolFactory.doCalculateCheckData(data, protocolFactory.mCheckUpIndex, protocolFactory.mCheckUpEndIndex)[0] == buffer[protocolFactory.mCheckUpEndIndex]) {
                 commandReceiver.analyzeData(buffer);
+                if (null != cmdListener) {
+                    cmdListener.readCmdData(buffer, buffer.length);
+                }
             }
         }
     }
@@ -397,7 +401,21 @@ public class Command {
         }
     }
 
+    /**
+     * 继续发送帧指令
+     */
     public void startCommand() {
         startHeart();
     }
+
+
+    /**
+     * 设置完整指令接听接口
+     *
+     * @param listener
+     */
+    public void setCmdListener(CmdListener listener) {
+        this.cmdListener = listener;
+    }
+
 }

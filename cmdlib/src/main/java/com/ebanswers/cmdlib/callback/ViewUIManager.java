@@ -241,13 +241,4 @@ public class ViewUIManager {
 
     }
 
-    public void reporteCloud(JSONObject json) {
-        //TODO
-//        try {
-//            CouldManager.reportToCouldAllStatus(json);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-    }
-
 }

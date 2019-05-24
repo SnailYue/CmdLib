@@ -36,6 +36,7 @@ public class CommandReceiver {
 
     /**
      * 解析校验通过的帧指令
+     *
      * @param buffer
      */
     public void analyzeData(final byte[] buffer) {
@@ -44,7 +45,7 @@ public class CommandReceiver {
             public void run() {
                 finalData = new byte[buffer.length];
                 finalData = buffer;
-                LogUtils.log("analyzeData: " + HexUtils.bytesToHexString(finalData));
+                Log.d(TAG, "analyzeData: " + HexUtils.bytesToHexString(finalData));
                 int index = 0;
                 byte serial = 0;
                 int dataLen;
@@ -88,6 +89,7 @@ public class CommandReceiver {
 
     /**
      * 解析全指令帧
+     *
      * @param len
      * @param data
      */
@@ -149,6 +151,7 @@ public class CommandReceiver {
 
     /**
      * 获取指定位的数据
+     *
      * @param index
      * @param pcflen
      * @return
@@ -163,6 +166,7 @@ public class CommandReceiver {
 
     /**
      * 获取功能位数据数组
+     *
      * @param index
      * @param pcflen
      * @return
