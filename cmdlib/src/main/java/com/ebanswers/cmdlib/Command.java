@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.ebanswers.cmdlib.callback.CmdListener;
+import com.ebanswers.cmdlib.callback.SerialPortConnectedListener;
 import com.ebanswers.cmdlib.cloud.CloudClient;
 import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
@@ -416,6 +417,16 @@ public class Command {
      */
     public void setCmdListener(CmdListener listener) {
         this.cmdListener = listener;
+    }
+
+    /**
+     * 串口连接状态监听
+     * @param listener
+     */
+    public void setOnSerialPortConnectedListener(SerialPortConnectedListener listener){
+        if (null != serialUtil) {
+            serialUtil.setConnectedListener(listener);
+        }
     }
 
 }

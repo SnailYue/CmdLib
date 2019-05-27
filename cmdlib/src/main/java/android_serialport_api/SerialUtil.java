@@ -3,6 +3,7 @@ package android_serialport_api;
 import android.util.Log;
 
 
+import com.ebanswers.cmdlib.callback.SerialPortConnectedListener;
 import com.ebanswers.cmdlib.utils.HexUtils;
 
 import java.io.File;
@@ -28,6 +29,8 @@ public class SerialUtil {
     private String errorMsg;
     public boolean isOpen = false;
     private Thread readThread = null;
+    private volatile long receiveTime = System.currentTimeMillis();
+    private SerialPortConnectedListener listener;
 
     public SerialUtil() {
     }
@@ -66,6 +69,7 @@ public class SerialUtil {
 
     public void sendCommands(byte[] cmds) {
         Log.d(TAG, "sendCommands: " + HexUtils.bytesToHexString(cmds));
+        isSerialConnected();
         if (null != this.mOutputStream) {
             try {
                 this.mOutputStream.write(cmds);
@@ -94,6 +98,7 @@ public class SerialUtil {
                                 if (len > 0) {
                                     if (SerialUtil.this.readCallBack != null) {
                                         SerialUtil.this.readCallBack.readData(len, data);
+                                        receiveTime = System.currentTimeMillis();
                                     }
                                 }
                             }
@@ -141,6 +146,30 @@ public class SerialUtil {
             Log.e(TAG, "closeSerialPort failed:" + var2.toString());
         }
 
+    }
+
+    /**
+     * 一般与电控之间的通信是需要心跳帧保持连接的
+     *
+     * @return
+     */
+    public boolean isSerialConnected() {
+        boolean connectedStatus = System.currentTimeMillis() - receiveTime < 3000 ? true : false;
+        if (connectedStatus && null != listener) {
+            listener.connected();
+        }
+        if (!connectedStatus && null != listener) {
+            listener.disConnected();
+        }
+        return connectedStatus;
+    }
+
+    public void setConnectedListener(SerialPortConnectedListener listener) {
+        this.listener = listener;
+    }
+
+    public void resetReceiveTime() {
+        this.receiveTime = System.currentTimeMillis();
     }
 
     public interface SerialPotReadCallBack {
