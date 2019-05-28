@@ -1,10 +1,10 @@
 package android_serialport_api;
 
-import android.util.Log;
 
 
 import com.ebanswers.cmdlib.callback.SerialPortConnectedListener;
 import com.ebanswers.cmdlib.utils.HexUtils;
+import com.ebanswers.cmdlib.utils.LogUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,14 +45,14 @@ public class SerialUtil {
             this.serialPort = new SerialPort(new File(tty), baudRate, flag);
             this.mInputStream = this.serialPort.getInputStream();
             this.mOutputStream = this.serialPort.getOutputStream();
-            Log.d(TAG, "open success:" + tty);
+            LogUtils.d(TAG, "open success:" + tty);
         } catch (IOException var5) {
-            Log.e(TAG, "open failed:" + var5.toString());
+            LogUtils.e(TAG, "open failed:" + var5.toString());
             this.errorMsg = var5.toString();
             this.isOpen = false;
             return false;
         } catch (SecurityException var6) {
-            Log.e(TAG, "open failed:have no read/write permission to the serial port");
+            LogUtils.e(TAG, "open failed:have no read/write permission to the serial port");
             this.isOpen = false;
             this.errorMsg = var6.toString();
             return false;
@@ -68,18 +68,18 @@ public class SerialUtil {
     }
 
     public void sendCommands(byte[] cmds) {
-        Log.d(TAG, "sendCommands: " + HexUtils.bytesToHexString(cmds));
+        LogUtils.d(TAG, "sendCommands: " + HexUtils.bytesToHexString(cmds));
         isSerialConnected();
         if (null != this.mOutputStream) {
             try {
                 this.mOutputStream.write(cmds);
                 this.mOutputStream.flush();
             } catch (IOException var3) {
-                Log.e(TAG, "sendCommands failed:" + var3.toString());
+                LogUtils.e(TAG, "sendCommands failed:" + var3.toString());
                 this.errorMsg = var3.toString();
             }
         } else {
-            Log.e(TAG, "sendCommands failed:null");
+            LogUtils.e(TAG, "sendCommands failed:null");
         }
 
     }
@@ -104,7 +104,7 @@ public class SerialUtil {
                             }
                         } catch (IOException var3) {
                             this.interrupt();
-                            Log.e(TAG, "readData error:" + var3.toString());
+                            LogUtils.e(TAG, "readData error:" + var3.toString());
                         }
                     }
 
@@ -112,7 +112,7 @@ public class SerialUtil {
             };
             this.readThread.start();
         } else {
-            Log.e(TAG, "initReadThread failed:null");
+            LogUtils.e(TAG, "initReadThread failed:null");
         }
     }
 
@@ -143,7 +143,7 @@ public class SerialUtil {
             this.isOpen = false;
         } catch (IOException var2) {
             this.isOpen = false;
-            Log.e(TAG, "closeSerialPort failed:" + var2.toString());
+            LogUtils.e(TAG, "closeSerialPort failed:" + var2.toString());
         }
 
     }

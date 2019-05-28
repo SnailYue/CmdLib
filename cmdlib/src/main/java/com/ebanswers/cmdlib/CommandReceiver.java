@@ -1,6 +1,5 @@
 package com.ebanswers.cmdlib;
 
-import android.util.Log;
 
 import com.ebanswers.cmdlib.protocol.ProtocolFactory;
 import com.ebanswers.cmdlib.protocol.bean.PCFrames;
@@ -45,7 +44,7 @@ public class CommandReceiver {
             public void run() {
                 finalData = new byte[buffer.length];
                 finalData = buffer;
-                Log.d(TAG, "analyzeData: " + HexUtils.bytesToHexString(finalData));
+                LogUtils.d(TAG, "analyzeData: " + HexUtils.bytesToHexString(finalData));
                 int index = 0;
                 byte serial = 0;
                 int dataLen;
@@ -68,8 +67,8 @@ public class CommandReceiver {
                                 byte[] data = null;
                                 dataLen = pcFrames.getLength();
                                 data = getFunctionByte(index, dataLen);
-                                if (ProtocolFactory.isSupportSerialNumber()) {
-                                    if (ProtocolFactory.getSerialNumber() == serial) {
+                                if (protocolFactory.isSupportSerialNumber()) {
+                                    if (protocolFactory.getSerialNumber() == serial) {
                                         analyzeAllStatus(data.length, data);
                                     }
                                 } else {
@@ -94,7 +93,7 @@ public class CommandReceiver {
      * @param data
      */
     public void analyzeAllStatus(int len, byte[] data) {
-        Log.d(TAG, "analyzeAllStatus: " + HexUtils.bytesToHexString(data));
+        LogUtils.d(TAG, "analyzeAllStatus: " + HexUtils.bytesToHexString(data));
         int sizeF = protocolFactory.getProtocolUpFunctions() == null ? 0 : protocolFactory.getProtocolUpFunctions().size();
         int index = 0;
         byte id = 0;
@@ -172,7 +171,7 @@ public class CommandReceiver {
      * @return
      */
     private byte[] getFunctionByte(int index, int pcflen) {
-        Log.d(TAG, "getValBytes: index = " + index + " ,pcflen = " + pcflen);
+        LogUtils.d(TAG, "getValBytes: index = " + index + " ,pcflen = " + pcflen);
         byte[] valdata = new byte[pcflen];
         for (int i = 0; i < pcflen; i++) {
             valdata[i] = finalData[i + index];

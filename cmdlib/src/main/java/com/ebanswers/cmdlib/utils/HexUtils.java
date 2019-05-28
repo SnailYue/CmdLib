@@ -1,6 +1,5 @@
 package com.ebanswers.cmdlib.utils;
 
-import android.util.Log;
 
 /**
  * @Author Snail
@@ -228,7 +227,6 @@ public class HexUtils {
         byte[] b = new byte[s.length];
         for (int i = 0; i < s.length; i++) {
             b[i] = Byte.parseByte(s[i]);
-            Log.d("liudong", b[i] + "");
         }
         return b;
     }

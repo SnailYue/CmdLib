@@ -20,7 +20,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -408,7 +407,6 @@ public class FileUtil {
                 fileContent.append(txt);
             }
             reader.close();
-            Log.d("duanyl", "readFile: "+fileContent.toString());
             return fileContent;
         } catch (IOException e) {
             throw new RuntimeException("IOException occurred. ", e);

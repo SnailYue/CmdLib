@@ -1,7 +1,6 @@
 package com.ebanswers.cmdlib;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.ebanswers.cmdlib.callback.CmdListener;
 import com.ebanswers.cmdlib.callback.SerialPortConnectedListener;
@@ -10,6 +9,7 @@ import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
 import com.ebanswers.cmdlib.protocol.ProtocolFactory;
 import com.ebanswers.cmdlib.utils.HexUtils;
+import com.ebanswers.cmdlib.utils.LogUtils;
 
 import java.lang.ref.WeakReference;
 import java.net.ConnectException;
@@ -28,13 +28,13 @@ import java.util.concurrent.TimeUnit;
 
 import android_serialport_api.SerialUtil;
 
-import static com.ebanswers.cmdlib.utils.LogUtils.TAG;
 
 /**
  * Created by Snail on 2018/10/17.
  */
 
 public class Command {
+    private static final String TAG = "Command";
     private static WeakReference<Context> mContext;
     private volatile ProtocolFactory protocolFactory;
     private CommandReceiver commandReceiver;
@@ -132,7 +132,7 @@ public class Command {
      * @param buffer
      */
     private void parseData(final int len, final byte[] buffer) {
-        Log.d(TAG, "readData: " + HexUtils.bytesToHexString(buffer));
+        LogUtils.d(TAG, "readData: " + HexUtils.bytesToHexString(buffer));
         data.clear();
         if (len != 0) {
             /**
@@ -157,7 +157,7 @@ public class Command {
      * @throws CommandException
      */
     public void send(final byte[] bytes) throws CommandException {
-        Log.d(TAG, "send: " + HexUtils.bytesToHexString(bytes));
+        LogUtils.d(TAG, "send: " + HexUtils.bytesToHexString(bytes));
         if (protocolFactory.supportAllSerial) {
             if (null == serialUtil || !serialUtil.isOpen) {
                 throw new CommandException("串口打开失败");
@@ -203,7 +203,7 @@ public class Command {
      * @throws CommandException
      */
     public void control(final ConcurrentHashMap<String, Object> values) throws ConnectException, CommandException {
-        Log.d(TAG, "controlsCommand: ");
+        LogUtils.d(TAG, "controlsCommand: ");
         sendThread.execute(new Runnable() {
             @Override
             public void run() {
@@ -335,7 +335,7 @@ public class Command {
         CloudClient.getInstance().setOnSocketReadListener(new CloudClient.OnSocketReadListener() {
             @Override
             public void onSocketReadListener(int length, byte[] bytes) {
-                Log.d(TAG, "onSocketReadListener: length = " + length + "cmd = " + HexUtils.bytesToHexString(bytes));
+                LogUtils.d(TAG, "onSocketReadListener: length = " + length + "cmd = " + HexUtils.bytesToHexString(bytes));
                 parasDataType(bytes);
             }
         });

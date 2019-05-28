@@ -1,9 +1,9 @@
 package com.ebanswers.cmdlib.timer;
 
-import android.util.Log;
 
-import java.util.Timer;
-import java.util.concurrent.ExecutorService;
+
+import com.ebanswers.cmdlib.utils.LogUtils;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -43,7 +43,7 @@ public class TimerTask {
      * 开始计时
      */
     public synchronized void start(int totalTime) {
-        Log.d(TAG, "start: ");
+        LogUtils.d(TAG, "start: ");
         this.mTotalTime = totalTime;
         if (isStop) {
             isStop = false;
@@ -55,7 +55,7 @@ public class TimerTask {
      * 结束倒计时
      */
     public synchronized void stop() {
-        Log.d(TAG, "stop: ");
+        LogUtils.d(TAG, "stop: ");
         if (!isStop) {
             isRun = false;
             mTotalTime = 0;
@@ -74,7 +74,7 @@ public class TimerTask {
      * 暂停倒计时
      */
     public synchronized void pause() {
-        Log.d(TAG, "pause: ");
+        LogUtils.d(TAG, "pause: ");
         if (isRun) {
             isRun = false;
             if (null != timerFuture) {
@@ -91,7 +91,7 @@ public class TimerTask {
      * 唤醒倒计时
      */
     public synchronized void resume() {
-        Log.d(TAG, "resume: ");
+        LogUtils.d(TAG, "resume: ");
         if (!isRun) {
             isRun = true;
             timerWork();
@@ -114,13 +114,13 @@ public class TimerTask {
             @Override
             public void run() {
                 if (mTotalTime == 0) {
-                    Log.d(TAG, "run: time = " + mTotalTime);
+                    LogUtils.d(TAG, "run: time = " + mTotalTime);
                     stop();
                     return;
                 }
                 if (mTotalTime > 0) {
                     mTotalTime--;
-                    Log.d(TAG, "run: time = " + mTotalTime + ",  type = " + mType);
+                    LogUtils.d(TAG, "run: time = " + mTotalTime + ",  type = " + mType);
                 }
                 if (mTimerTaskListener != null) {
                     mTimerTaskListener.onTick(mTotalTime, mType);

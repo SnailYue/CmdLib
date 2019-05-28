@@ -1,11 +1,10 @@
 package com.ebanswers.cmdlib;
 
+
 /**
- * Created by air
- *
- * @link https://github.com/LiShiHui24740
- * On 2018/3/20 下午1:43.
- * @description:
+ * @Author Snail
+ * Date 2019/5/27
+ * Email yuesnail@gmail.com
  */
 
 public class ConstansCommand {

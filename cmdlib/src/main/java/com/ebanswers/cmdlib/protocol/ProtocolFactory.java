@@ -2,7 +2,6 @@ package com.ebanswers.cmdlib.protocol;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.ebanswers.cmdlib.ConstansCommand;
 import com.ebanswers.cmdlib.callback.ViewUIManager;
@@ -14,6 +13,7 @@ import com.ebanswers.cmdlib.utils.ByteUtil;
 import com.ebanswers.cmdlib.utils.CRC16;
 import com.ebanswers.cmdlib.utils.CRC8;
 import com.ebanswers.cmdlib.utils.HexUtils;
+import com.ebanswers.cmdlib.utils.LogUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -57,7 +57,7 @@ public class ProtocolFactory {
     /**
      * 帧格式相关配置
      */
-    public static ConcurrentHashMap<Integer, PCFrames> pcFrameMap = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<Integer, PCFrames> pcFrameMap = new ConcurrentHashMap<>();
     /**
      * 帧类型
      */
@@ -244,7 +244,7 @@ public class ProtocolFactory {
                 for (int i = 0; i < mFrameCount; i++) {
                     PCFrames pcFrames = framesList.get(i);
                     pcFrameMap.put(pcFrames.getPid(), pcFrames);
-                    Log.d(TAG, "initFrames: " + pcFrames.getPid() + "," + pcFrames.getLength());
+                    LogUtils.d(TAG, "initFrames: " + pcFrames.getPid() + "," + pcFrames.getLength());
 
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_LENGTH)) {
                         mFrameDownAllLength = pcFrames.getCmdLength().getDownLength();
@@ -272,7 +272,7 @@ public class ProtocolFactory {
                         mFrameDownDataLen = pcFrames.getLength();
                     }
                 }
-                Log.d(TAG, "initFrames: mFrameUpAllLength:" + mFrameUpAllLength + " ,mFrameDownAllLength" + mFrameDownAllLength);
+                LogUtils.d(TAG, "initFrames: mFrameUpAllLength:" + mFrameUpAllLength + " ,mFrameDownAllLength" + mFrameDownAllLength);
             }
         }
     }
@@ -335,7 +335,7 @@ public class ProtocolFactory {
     /**
      * 获取流水号
      */
-    public static byte getSerialNumber() {
+    public byte getSerialNumber() {
         return serialNumber;
     }
 
@@ -460,7 +460,7 @@ public class ProtocolFactory {
      * @return
      */
     public boolean checkData(LinkedList<Byte> data, int checkindex, int checkendindex, int len) {
-        Log.d(TAG, "checkData: size = " + data.size() + ",checkendindex = " + checkendindex + " checkindex = " + checkindex);
+        LogUtils.d(TAG, "checkData: size = " + data.size() + ",checkendindex = " + checkendindex + " checkindex = " + checkindex);
         int check = 0;
         switch (mCheckType) {
             case ConstansCommand.CHECK_SUM:
@@ -547,11 +547,11 @@ public class ProtocolFactory {
     public synchronized byte[] getCommands(String type, Map<String, Object> command, int serial, boolean isResponse, boolean isresend) throws CommandException {
         commands.clear();
         int sizepcf = pcFrameMap.size();
-        Log.d(TAG, "getCommands: size = " + sizepcf);
+        LogUtils.d(TAG, "getCommands: size = " + sizepcf);
         byte[] cmd = new byte[0];
         try {
             cmd = getCmdData(type, command, isResponse, isresend);
-            Log.d(TAG, "getCommands: " + HexUtils.bytesToHexString(cmd));
+            LogUtils.d(TAG, "getCommands: " + HexUtils.bytesToHexString(cmd));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -607,11 +607,11 @@ public class ProtocolFactory {
                         commands.add(pcfData[j]);
                     }
                 } else {
-                    Log.e(TAG, "getCommands: Frame data length error" + pcFrame.getPtype());
+                    LogUtils.e(TAG, "getCommands: Frame data length error" + pcFrame.getPtype());
                 }
             }
         }
-        Log.d(TAG, "getCommands: Commands = " + commands.size());
+        LogUtils.d(TAG, "getCommands: Commands = " + commands.size());
         byte[] data = new byte[commands.size()];
         for (int i = 0; i < commands.size(); i++) {
             data[i] = commands.get(i);
@@ -758,7 +758,7 @@ public class ProtocolFactory {
         for (int i = 0; i < cmd.size(); i++) {
             data[i] = cmd.get(i);
         }
-        Log.d(TAG, "getCmdControlData: " + HexUtils.bytesToHexString(data));
+        LogUtils.d(TAG, "getCmdControlData: " + HexUtils.bytesToHexString(data));
         return data;
     }
 
@@ -918,8 +918,8 @@ public class ProtocolFactory {
      *
      * @return
      */
-    public static boolean isSupportSerialNumber() {
-        if (null != pcFrameMap && pcFrameMap.size() > 0) {
+    public boolean isSupportSerialNumber() {
+        if (null != this.pcFrameMap && pcFrameMap.size() > 0) {
             for (int i = 0; i < pcFrameMap.size(); i++) {
                 if (pcFrameMap.get(i + 1).getPtype().equals("SerialNumber")) {
                     isSupportSerialNumber = true;
