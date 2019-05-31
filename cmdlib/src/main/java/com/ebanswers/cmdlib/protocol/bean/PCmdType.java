@@ -8,15 +8,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class PCmdType {
     @SerializedName("Code")
-    private String Code;
+    private byte Code;
     @SerializedName("Type")
     private String Type;
+    @SerializedName("IsAnalysis")
+    private boolean IsAnalysic;
 
-    public String getCode() {
+    public byte getCode() {
         return Code;
     }
 
-    public void setCode(String code) {
+    public void setCode(byte code) {
         this.Code = code;
     }
 
@@ -28,5 +30,11 @@ public class PCmdType {
         this.Type = type;
     }
 
+    public boolean isAnalysic() {
+        return IsAnalysic;
+    }
 
+    public void setAnalysic(boolean analysic) {
+        IsAnalysic = analysic;
+    }
 }

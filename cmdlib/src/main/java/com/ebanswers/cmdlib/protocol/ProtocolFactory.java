@@ -2,12 +2,14 @@ package com.ebanswers.cmdlib.protocol;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.SparseArray;
 
 import com.ebanswers.cmdlib.ConstansCommand;
 import com.ebanswers.cmdlib.callback.ViewUIManager;
 import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
 import com.ebanswers.cmdlib.protocol.bean.PCFrames;
+import com.ebanswers.cmdlib.protocol.bean.PCmdType;
 import com.ebanswers.cmdlib.protocol.bean.PTFunction;
 import com.ebanswers.cmdlib.utils.ByteUtil;
 import com.ebanswers.cmdlib.utils.CRC16;
@@ -24,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -58,14 +61,14 @@ public class ProtocolFactory {
      * 帧格式相关配置
      */
     public ConcurrentHashMap<Integer, PCFrames> pcFrameMap = new ConcurrentHashMap<>();
-    /**
-     * 帧类型
-     */
-    private ConcurrentHashMap<String, String> pcCmdTypeMap = new ConcurrentHashMap<>();
-
-    public ConcurrentHashMap<Integer, String> pcCmdCodeTypeMap = new ConcurrentHashMap<>();
 
     public LinkedList<Byte> commands = new LinkedList<>();
+
+
+    /**
+     * 帧类型集合
+     */
+    public SparseArray<PCmdType> pCmdTypes = new SparseArray<>();
 
     /**
      * 下行帧帧头
@@ -165,7 +168,13 @@ public class ProtocolFactory {
      * 是否在点击的时候改变自身的值
      */
     private boolean isChangeStatusSelf = false;
+    /**
+     * 水流号
+     */
     private static byte serialNumber;
+    /**
+     * 是否支持流水号
+     */
     private static boolean isSupportSerialNumber;
 
     public ProtocolFactory() {
@@ -236,8 +245,7 @@ public class ProtocolFactory {
             mFrameUpAllLength = 0;
             mFrameDownAllLength = 0;
             pcFrameMap.clear();
-            pcCmdCodeTypeMap.clear();
-            pcCmdTypeMap.clear();
+            pCmdTypes.clear();
             mFrameCount = framesList.size();
 
             if (mFrameCount > 0) {
@@ -270,6 +278,11 @@ public class ProtocolFactory {
                     }
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_DOWN_CMDDATA)) {
                         mFrameDownDataLen = pcFrames.getLength();
+                    }
+                    if (pcFrames.getPtype().equals(ConstansCommand.FRAME_CMDTYPE)) {
+                        for (int j = 0; j < pcFrames.getCmdtypes().size(); j++) {
+                            pCmdTypes.put(j, pcFrames.getCmdtypes().get(j));
+                        }
                     }
                 }
                 LogUtils.d(TAG, "initFrames: mFrameUpAllLength:" + mFrameUpAllLength + " ,mFrameDownAllLength" + mFrameDownAllLength);
@@ -515,14 +528,6 @@ public class ProtocolFactory {
         return getCommands(type, command, isResend ? serialNumber : addSerialNumber(), false, isResend);
     }
 
-    public synchronized byte[] getCommands(byte type, Map<String, Object> command, int serial, boolean isResponse, boolean isresend) throws CommandException {
-        String str_type = pcCmdCodeTypeMap.get(new Integer(type));
-        if (TextUtils.isEmpty(str_type)) {
-            str_type = ConstansCommand.CMDTYPE_CONTROL;
-        }
-        return getCommands(str_type, command, serial, isResponse, isresend);
-    }
-
     /**
      * 获取流水号
      *
@@ -575,10 +580,10 @@ public class ProtocolFactory {
                         pcfData = new byte[]{null == cmd ? 0 : (byte) (isResponse ? cmd.length + 1 : cmd.length + 2)};
                         break;
                     /**
-                     * 获取设备类型
+                     * 帧类型
                      */
                     case ConstansCommand.FRAME_CMDTYPE:
-                        pcfData = HexUtils.hexStr2Bytes(pcCmdTypeMap.get(type));
+                        pcfData = getCmdTypeByte(type);
                         break;
                     /**
                      * 获取状态相关值
@@ -646,6 +651,7 @@ public class ProtocolFactory {
 
     /**
      * 计算校验码
+     *
      * @param datas
      * @param startIndex
      * @param endIndex
@@ -939,5 +945,22 @@ public class ProtocolFactory {
      */
     public ConcurrentHashMap<String, PTFunction> getAllFunctionsMap() {
         return allFunctionsMap;
+    }
+
+    /**
+     * 根据帧类型获取帧码
+     * @param type
+     * @return
+     */
+    public byte[] getCmdTypeByte(String type) {
+        byte[] typeCode = new byte[1];
+        for (int i = 0; i < pCmdTypes.size(); i++) {
+            PCmdType pCmdType = pCmdTypes.get(i);
+            if (type.equals(pCmdType.getType())){
+                typeCode[0] = pCmdType.getCode();
+                break;
+            }
+        }
+        return typeCode;
     }
 }

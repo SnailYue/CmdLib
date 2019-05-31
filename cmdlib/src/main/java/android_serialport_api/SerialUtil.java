@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author Snail
@@ -29,8 +32,9 @@ public class SerialUtil {
     private String errorMsg;
     public boolean isOpen = false;
     private Thread readThread = null;
-    private volatile long receiveTime = System.currentTimeMillis();
     private SerialPortConnectedListener listener;
+    private volatile long receiveCmdTime = System.currentTimeMillis();
+    private ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     public SerialUtil() {
     }
@@ -57,7 +61,7 @@ public class SerialUtil {
             this.errorMsg = var6.toString();
             return false;
         }
-
+        checkIsConneted();
         this.isOpen = true;
         this.errorMsg = null;
         return true;
@@ -69,7 +73,6 @@ public class SerialUtil {
 
     public void sendCommands(byte[] cmds) {
         LogUtils.d(TAG, "sendCommands: " + HexUtils.bytesToHexString(cmds));
-        isSerialConnected();
         if (null != this.mOutputStream) {
             try {
                 this.mOutputStream.write(cmds);
@@ -98,7 +101,7 @@ public class SerialUtil {
                                 if (len > 0) {
                                     if (SerialUtil.this.readCallBack != null) {
                                         SerialUtil.this.readCallBack.readData(len, data);
-                                        receiveTime = System.currentTimeMillis();
+                                        receiveCmdTime = System.currentTimeMillis();
                                     }
                                 }
                             }
@@ -149,19 +152,22 @@ public class SerialUtil {
     }
 
     /**
-     * 一般与电控之间的通信是需要心跳帧保持连接的
-     *
-     * @return
+     * 检测通讯是否正常
+     * 每5s检测一次串口是否通讯正常
      */
-    public boolean isSerialConnected() {
-        boolean connectedStatus = System.currentTimeMillis() - receiveTime < 3000 ? true : false;
-        if (connectedStatus && null != listener) {
-            listener.connected();
-        }
-        if (!connectedStatus && null != listener) {
-            listener.disConnected();
-        }
-        return connectedStatus;
+    public void checkIsConneted() {
+        executorService.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                boolean status = System.currentTimeMillis() - receiveCmdTime < 2000 ? true : false;
+                if (status && null != listener) {
+                    listener.connected();
+                }
+                if (!status && null != listener) {
+                    listener.disConnected();
+                }
+            }
+        }, 0, 5, TimeUnit.SECONDS);
     }
 
     public void setConnectedListener(SerialPortConnectedListener listener) {
@@ -169,7 +175,7 @@ public class SerialUtil {
     }
 
     public void resetReceiveTime() {
-        this.receiveTime = System.currentTimeMillis();
+        this.receiveCmdTime = System.currentTimeMillis();
     }
 
     public interface SerialPotReadCallBack {

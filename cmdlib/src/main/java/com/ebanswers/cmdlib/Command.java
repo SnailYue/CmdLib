@@ -192,7 +192,7 @@ public class Command {
      * @throws CommandException
      */
     public void sendAllStatus() throws CommandException {
-        send(protocolFactory.getCommands(ConstansCommand.CMDTYPE_QUERY, null, false));
+        send(protocolFactory.getCommands(ConstansCommand.CMDTYPE_HEART, null, false));
     }
 
     /**

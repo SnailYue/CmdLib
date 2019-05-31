@@ -47,7 +47,10 @@ public class TimerTask {
         this.mTotalTime = totalTime;
         if (isStop) {
             isStop = false;
-            resume();
+            if (!isRun) {
+                isRun = true;
+                timerWork(0);
+            }
         }
     }
 
@@ -94,7 +97,7 @@ public class TimerTask {
         LogUtils.d(TAG, "resume: ");
         if (!isRun) {
             isRun = true;
-            timerWork();
+            timerWork(1000);
         }
     }
 
@@ -102,13 +105,12 @@ public class TimerTask {
     /**
      * 使用线程池实现计时器
      */
-    public void timerWork() {
+    public void timerWork(int delayed) {
         if (null != timerFuture) {
             timerFuture.cancel(true);
             timerFuture = null;
         }
-        timerFuture = Executors.newScheduledThreadPool(1)
-                .scheduleAtFixedRate(timerRunnable, 0, 1, TimeUnit.SECONDS);
+
 
         timerRunnable = new Runnable() {
             @Override
@@ -127,6 +129,10 @@ public class TimerTask {
                 }
             }
         };
+
+        timerFuture = Executors.newScheduledThreadPool(1)
+                .scheduleAtFixedRate(timerRunnable, delayed, 1, TimeUnit.SECONDS);
+
         if (mTimerTaskListener != null) {
             mTimerTaskListener.onStart(mTotalTime, mType);
         }
