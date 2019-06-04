@@ -45,14 +45,15 @@ public class Command {
     private static byte[] dataResult;
     private static int sum = 0;
     private volatile Future futureHeart;
+    private volatile Future futureResend;
     private CmdListener cmdListener;
 
     public Command() {
         protocolFactory = new ProtocolFactory();
-        commandReceiver = new CommandReceiver("", protocolFactory);
+        commandReceiver = new CommandReceiver(protocolFactory);
     }
 
-    public static void init(Context context, boolean isSupportSerial) {
+    public static void init(Context context) {
         mContext = new WeakReference<>(context);
     }
 
@@ -202,8 +203,7 @@ public class Command {
      * @throws ConnectException
      * @throws CommandException
      */
-    public void control(final ConcurrentHashMap<String, Object> values) throws ConnectException, CommandException {
-        LogUtils.d(TAG, "controlsCommand: ");
+    public void control(final ConcurrentHashMap<String, Object> values, final String type) throws ConnectException, CommandException {
         sendThread.execute(new Runnable() {
             @Override
             public void run() {
@@ -217,7 +217,7 @@ public class Command {
                 }
                 try {
                     sendThread.awaitTermination(100, TimeUnit.MILLISECONDS);
-                    controlAll(map);
+                    controlAll(map, type);
                     sendThread.awaitTermination(100, TimeUnit.MILLISECONDS);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -233,7 +233,7 @@ public class Command {
      * @throws ConnectException
      * @throws CommandException
      */
-    public void controlAll(Map<String, Object> values) throws ConnectException, CommandException {
+    public void controlAll(Map<String, Object> values, String type) throws ConnectException, CommandException {
         Iterator iterator = values.keySet().iterator();
         while (iterator.hasNext()) {
             String name = (String) iterator.next();
@@ -242,7 +242,7 @@ public class Command {
                 throw new ConnectException(name + "非法， 功能名称不在TRD中定义");
             }
         }
-        byte[] bytes = protocolFactory.getCommands(ConstansCommand.CMDTYPE_CONTROL, values, false);
+        byte[] bytes = protocolFactory.getCommands(type, values, false);
         sendCommands(protocolFactory.getSerialNumber(), bytes);
     }
 
@@ -269,22 +269,23 @@ public class Command {
     public void reSendCommand(byte serial, final byte[] buffer) {
         final int[] i = {0};
         if (protocolFactory.resendTimes > 0) {
-            final Timer timer = new Timer();
-            final TimerTask timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        send(buffer);
-                        i[0]++;
-                        if (i[0] >= protocolFactory.resendTimes) {
-                            timer.cancel();
+            futureResend = Executors.newScheduledThreadPool(1)
+                    .scheduleAtFixedRate(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                send(buffer);
+                                i[0]++;
+                                if (i[0] >= protocolFactory.resendTimes) {
+                                    futureResend.cancel(true);
+                                    futureResend = null;
+                                }
+                            } catch (CommandException e) {
+                                e.printStackTrace();
+                            }
+
                         }
-                    } catch (CommandException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            timer.scheduleAtFixedRate(timerTask, protocolFactory.resendInterval, protocolFactory.resendInterval);
+                    }, protocolFactory.resendInterval, protocolFactory.resendInterval, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -421,9 +422,10 @@ public class Command {
 
     /**
      * 串口连接状态监听
+     *
      * @param listener
      */
-    public void setOnSerialPortConnectedListener(SerialPortConnectedListener listener){
+    public void setOnSerialPortConnectedListener(SerialPortConnectedListener listener) {
         if (null != serialUtil) {
             serialUtil.setConnectedListener(listener);
         }

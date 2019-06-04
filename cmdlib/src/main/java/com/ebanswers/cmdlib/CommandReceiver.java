@@ -22,13 +22,12 @@ import java.util.concurrent.Executors;
 public class CommandReceiver {
     private static final String TAG = "CommandReceiver";
     private ProtocolFactory protocolFactory;
-    private String function;
+    private byte type;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     public Set serialSet = Collections.synchronizedSet(new HashSet<Integer>());
     private byte[] finalData;
 
-    public CommandReceiver(String function, ProtocolFactory factory) {
-        this.function = function;
+    public CommandReceiver(ProtocolFactory factory) {
         this.protocolFactory = factory;
     }
 
@@ -60,6 +59,9 @@ public class CommandReceiver {
                                 serial = getValToInt(index, pcfLen);
                                 serialSet.add(serial);
                                 break;
+                            case ConstansCommand.FRAME_CMDTYPE:
+                                type = finalData[index];
+                                break;
                             /**
                              * 帧指令功能位
                              */
@@ -69,10 +71,10 @@ public class CommandReceiver {
                                 data = getFunctionByte(index, dataLen);
                                 if (protocolFactory.isSupportSerialNumber()) {
                                     if (protocolFactory.getSerialNumber() == serial) {
-                                        analyzeAllStatus(data.length, data);
+                                        analyzeType(data.length, data, type);
                                     }
                                 } else {
-                                    analyzeAllStatus(data.length, data);
+                                    analyzeType(data.length, data, type);
                                 }
                                 break;
                             default:
@@ -85,6 +87,25 @@ public class CommandReceiver {
         });
     }
 
+
+    /**
+     * 多类型指令，单一类型的帧默认解析，多类型的帧根据配置文件中的配置信息进行解析
+     *
+     * @param len
+     * @param data
+     * @param type
+     */
+    public void analyzeType(int len, byte[] data, byte type) {
+        if (protocolFactory.isSupportTypes) {
+            for (int i = 0; i < protocolFactory.getpCmdTypes().size(); i++) {
+                if (protocolFactory.getpCmdTypes().get(i).getCode() == type) {
+                    analyzeAllStatus(len, data);
+                }
+            }
+        } else {
+            analyzeAllStatus(len, data);
+        }
+    }
 
     /**
      * 解析全指令帧
@@ -172,10 +193,10 @@ public class CommandReceiver {
      */
     private byte[] getFunctionByte(int index, int pcflen) {
         LogUtils.d(TAG, "getValBytes: index = " + index + " ,pcflen = " + pcflen);
-        byte[] valdata = new byte[pcflen];
+        byte[] data = new byte[pcflen];
         for (int i = 0; i < pcflen; i++) {
-            valdata[i] = finalData[i + index];
+            data[i] = finalData[i + index];
         }
-        return valdata;
+        return data;
     }
 }

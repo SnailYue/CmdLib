@@ -71,12 +71,12 @@ public class ByteUtil {
      *
      * @param bb
      * @param x
-     * @param index
      */
-    public static void putInt(byte[] bb, int x) {
+    public static byte[] putInt(byte[] bb, int x) {
         for (int i = 0;i < bb.length;i++){
             bb[bb.length-1-i] = (byte) (x >> i * 8);
         }
+        return bb;
     }
     /**
      * 通过byte数组取到int

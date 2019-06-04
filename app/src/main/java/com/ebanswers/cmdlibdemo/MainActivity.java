@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ebanswers.cmdlib.Command;
+import com.ebanswers.cmdlib.callback.CmdListener;
+import com.ebanswers.cmdlib.callback.SerialPortConnectedListener;
 import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private volatile ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<>();
 
     private Button clickButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-    public void initView(){
+    public void initView() {
         clickButton = findViewById(R.id.bt_click);
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initData() {
-        Command.init(this, true);
+        Command.init(this);
         try {
             /**
-             * 蒸箱协议配置
+             * 协议初始化
              */
             Command.getInstance().setProtocol(this, "standard_net_kitchen_steamer_oven_new.json");
         } catch (TRDException e) {
@@ -56,11 +59,38 @@ public class MainActivity extends AppCompatActivity {
     public void sendCommands(ConcurrentHashMap<String, Object> map, boolean isOpenPressSound) {
         this.map = map;
         try {
-            Command.getInstance().control(map);
+            Command.getInstance().control(map, null);
         } catch (ConnectException e) {
             e.printStackTrace();
         } catch (CommandException e) {
             e.printStackTrace();
         }
+    }
+
+    public void initListener(){
+        Command.getInstance().setCmdListener(new CmdListener() {
+            @Override
+            public void readCmdData(byte[] bytes, int len) {
+
+            }
+        });
+    }
+
+    public void initConnectedStatusListener(){
+        Command.getInstance().setOnSerialPortConnectedListener(new SerialPortConnectedListener() {
+            @Override
+            public void disConnected() {
+                /**
+                 * 串口通讯连接断开
+                 */
+            }
+
+            @Override
+            public void connected() {
+                /**
+                 * 串口通讯连接正常
+                 */
+            }
+        });
     }
 }

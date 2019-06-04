@@ -1,7 +1,6 @@
 package com.ebanswers.cmdlib.protocol;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.ebanswers.cmdlib.ConstansCommand;
@@ -26,7 +25,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -120,6 +118,10 @@ public class ProtocolFactory {
      */
     public boolean isResend;
     /**
+     * 是否多类型指令
+     */
+    public boolean isSupportTypes;
+    /**
      * 重发频率
      */
     public int resendInterval = 0;
@@ -162,8 +164,6 @@ public class ProtocolFactory {
     public static int socketPort;
 
     public static String socketKey;
-
-    public boolean isStandard = true;
     /**
      * 是否在点击的时候改变自身的值
      */
@@ -225,6 +225,7 @@ public class ProtocolFactory {
             this.serialParity = protocol.getPTConfig().getSerial_parity();
             this.serialStopBit = protocol.getPTConfig().getSerial_stopbits();
             this.isChangeStatusSelf = protocol.getPTConfig().isChangeStatusSelf();
+            this.isSupportTypes = protocol.getPTConfig().isSupportFrameType();
             socketUrl = protocol.getPCloudControl().getSocketUrl();
             socketPort = protocol.getPCloudControl().getSocketPort();
             socketKey = protocol.getPCloudControl().getSocketKey();
@@ -552,7 +553,6 @@ public class ProtocolFactory {
     public synchronized byte[] getCommands(String type, Map<String, Object> command, int serial, boolean isResponse, boolean isresend) throws CommandException {
         commands.clear();
         int sizepcf = pcFrameMap.size();
-        LogUtils.d(TAG, "getCommands: size = " + sizepcf);
         byte[] cmd = new byte[0];
         try {
             cmd = getCmdData(type, command, isResponse, isresend);
@@ -566,30 +566,21 @@ public class ProtocolFactory {
                 int pcflen = pcFrame.getLength();
                 byte[] pcfData = new byte[pcflen];
                 switch (pcFrame.getPtype()) {
-                    /**
-                     * 帧头
-                     */
                     case ConstansCommand.FRAME_HEAD:
                         String data = isResponse ? pcFrame.getCmdHead().getResponseCode() : pcFrame.getCmdHead().getSendCode();
                         pcfData = HexUtils.hexStr2Bytes(data);
                         break;
                     case ConstansCommand.FRAME_SERIAL_NUMBER:
-                        ByteUtil.putInt(pcfData, serial);
+                        pcfData = ByteUtil.putInt(pcfData, serial);
                         break;
                     case ConstansCommand.FRAME_LENGTH:
                         pcfData = new byte[]{null == cmd ? 0 : (byte) (isResponse ? cmd.length + 1 : cmd.length + 2)};
                         break;
-                    /**
-                     * 帧类型
-                     */
                     case ConstansCommand.FRAME_CMDTYPE:
                         pcfData = getCmdTypeByte(type);
                         break;
-                    /**
-                     * 获取状态相关值
-                     */
                     case ConstansCommand.FRAME_DOWN_CMDDATA:
-                        if (isResponse && isStandard) {
+                        if (isResponse) {
                             commands.add((byte) 0x00);
                         }
                         if (cmd != null) {
@@ -625,29 +616,68 @@ public class ProtocolFactory {
     }
 
 
+    /**
+     * 用于处理单一帧格式和多种帧格式
+     *
+     * @param type
+     * @param command
+     * @param isResponse
+     * @param isresend
+     * @return
+     * @throws CommandException
+     * @throws JSONException
+     */
     public byte[] getCmdData(String type, Map<String, Object> command, boolean isResponse, boolean isresend) throws CommandException, JSONException {
         byte[] data = null;
         /**
          * 单一帧格式
          */
-        if (!protocol.PTConfig.isSupportFrameType()) {
-            if (null != command) {
-                changeMutexValue(command);
-            }
-            data = getCmdControlData(command, isresend);
+        if (!isSupportTypes) {
+            data = checkMutexValue(command, isresend);
         }
         /**
          * 多种帧格式
          */
         else {
             switch (type) {
+                case ConstansCommand.CMDTYPE_HEART:
+                    data = checkMutexValue(command, isresend);
+                    break;
+                case ConstansCommand.CMDTYPE_CONTROL:
+                    data = checkMutexValue(command, isresend);
+                    break;
+                case ConstansCommand.CMDTYPE_QUERY:
+                    data = checkMutexValue(command, isresend);
+                    break;
+                case ConstansCommand.CMDTYPE_SHAKE:
+                    data = checkMutexValue(command, isresend);
+                    break;
+                case ConstansCommand.CMDTYPE_ERROR:
+                    data = checkMutexValue(command, isresend);
+                    break;
                 default:
+                    data = checkMutexValue(command, isresend);
                     break;
             }
         }
         return data;
     }
 
+    /**
+     * 检查互斥功能的值
+     *
+     * @param command
+     * @param isresend
+     * @throws JSONException
+     */
+    public byte[] checkMutexValue(Map<String, Object> command, boolean isresend) throws JSONException {
+        byte[] data = null;
+        if (null != command) {
+            changeMutexValue(command);
+        }
+        data = getCmdControlData(command, isresend);
+        return data;
+    }
 
     /**
      * 计算校验码
@@ -773,7 +803,7 @@ public class ProtocolFactory {
      *
      * @param command
      */
-    public void changeMutexValue(Map<String, Object> command) throws JSONException {
+    public void changeMutexValue(Map<String, Object> command) {
         String name;
         int size = downFunctionsMap.size();
         int count = 1;
@@ -949,6 +979,7 @@ public class ProtocolFactory {
 
     /**
      * 根据帧类型获取帧码
+     *
      * @param type
      * @return
      */
@@ -956,11 +987,19 @@ public class ProtocolFactory {
         byte[] typeCode = new byte[1];
         for (int i = 0; i < pCmdTypes.size(); i++) {
             PCmdType pCmdType = pCmdTypes.get(i);
-            if (type.equals(pCmdType.getType())){
+            if (type.equals(pCmdType.getType())) {
                 typeCode[0] = pCmdType.getCode();
                 break;
             }
         }
         return typeCode;
+    }
+
+    /**
+     * 获取帧类型集合
+     * @return
+     */
+    public SparseArray<PCmdType> getpCmdTypes(){
+        return pCmdTypes;
     }
 }
