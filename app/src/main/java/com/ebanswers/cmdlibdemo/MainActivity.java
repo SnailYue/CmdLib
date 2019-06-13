@@ -2,7 +2,6 @@ package com.ebanswers.cmdlibdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             /**
              * 协议初始化
              */
-            Command.getInstance().setProtocol(this, "standard_net_kitchen_steamer_oven_new.json");
+            Command.getInstance().setProtocol(this, "protocol.json");
         } catch (TRDException e) {
             e.printStackTrace();
         }
