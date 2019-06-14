@@ -24,6 +24,4 @@ public class ComException {
             super(string);
         }
     }
-
-
 }

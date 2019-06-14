@@ -7,7 +7,7 @@ package com.ebanswers.cmdlib.utils;
  * Email yuesnail@gmail.com
  */
 
-public class HexUtils {
+public class HexUtil {
     /**
      * 字符串转换成十六进制字符串
      *

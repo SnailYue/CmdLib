@@ -92,10 +92,10 @@ public class ConstansCommand {
     /**
      * 校验算法
      */
-    //CRC16
-    public static final String CHECK_CRC16 = "CRC16";
-    //CRC8
-    public static final String CHECK_CRC8 = "CRC8";
+    //CRC16Util
+    public static final String CHECK_CRC16 = "CRC16Util";
+    //CRC8Util
+    public static final String CHECK_CRC8 = "CRC8Util";
     //SUM
     public static final String CHECK_SUM = "SUM";
 

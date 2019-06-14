@@ -8,8 +8,8 @@ import com.ebanswers.cmdlib.cloud.CloudClient;
 import com.ebanswers.cmdlib.exception.CommandException;
 import com.ebanswers.cmdlib.exception.TRDException;
 import com.ebanswers.cmdlib.protocol.ProtocolFactory;
-import com.ebanswers.cmdlib.utils.HexUtils;
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.HexUtil;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import java.lang.ref.WeakReference;
 import java.net.ConnectException;
@@ -17,8 +17,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -102,7 +100,10 @@ public class Command {
                 @Override
                 public void readData(final int var1, byte[] var2) {
                     /**
-                     * 为避免出现电控端的一条帧指令出现分多次发送的情况，需对指令做拼接处理
+                     *  截取需要校验的部分,为了避免出现一个完整的上行帧分多次上报的情况，需对接收到的帧指令做拼接，处理。
+                     *  如协议中出现多种帧，且长度不一致，可以在此处做扩展。根据帧类型，长度做拼接校验。
+                     *
+                     *  如此处默认使用的是单一长度的帧指令，在Json配置文件中配置的上行帧的长度
                      */
                     for (int i = 0; i < var1; i++) {
                         if (sum + i >= protocolFactory.mFrameUpAllLength) {
@@ -133,12 +134,9 @@ public class Command {
      * @param buffer
      */
     private void parseData(final int len, final byte[] buffer) {
-        LogUtils.d(TAG, "readData: " + HexUtils.bytesToHexString(buffer));
+        LogUtil.d(TAG, "readData: " + HexUtil.bytesToHexString(buffer));
         data.clear();
         if (len != 0) {
-            /**
-             *  截取需要校验的部分
-             */
             for (int i = protocolFactory.mCheckUpIndex; i <= protocolFactory.mCheckUpEndIndex; i++) {
                 data.add(buffer[i - 1]);
             }
@@ -158,7 +156,7 @@ public class Command {
      * @throws CommandException
      */
     public void send(final byte[] bytes) throws CommandException {
-        LogUtils.d(TAG, "send: " + HexUtils.bytesToHexString(bytes));
+        LogUtil.d(TAG, "send: " + HexUtil.bytesToHexString(bytes));
         if (protocolFactory.supportAllSerial) {
             if (null == serialUtil || !serialUtil.isOpen) {
                 throw new CommandException("串口打开失败");
@@ -336,14 +334,14 @@ public class Command {
         CloudClient.getInstance().setOnSocketReadListener(new CloudClient.OnSocketReadListener() {
             @Override
             public void onSocketReadListener(int length, byte[] bytes) {
-                LogUtils.d(TAG, "onSocketReadListener: length = " + length + "cmd = " + HexUtils.bytesToHexString(bytes));
+                LogUtil.d(TAG, "onSocketReadListener: length = " + length + "cmd = " + HexUtil.bytesToHexString(bytes));
                 parasDataType(bytes);
             }
         });
     }
 
     /**
-     * 解析云端的数据
+     * 解析云端的数据，暂不支持
      *
      * @param bytes
      */
@@ -395,7 +393,7 @@ public class Command {
     }
 
     /**
-     * 停止发送帧指令
+     * 停止发送心跳帧，主要针对低功耗功能，串口通信不停止，无法进入低功耗
      */
     public void stopCommand() {
         if (null != futureHeart) {
@@ -404,7 +402,7 @@ public class Command {
     }
 
     /**
-     * 继续发送帧指令
+     * 继续发送心跳帧指令，如解除低功耗，恢复心跳帧
      */
     public void startCommand() {
         startHeart();

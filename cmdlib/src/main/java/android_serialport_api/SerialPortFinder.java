@@ -1,7 +1,7 @@
 package android_serialport_api;
 
 
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import java.io.File;
 import java.io.FileReader;
@@ -33,7 +33,7 @@ public class SerialPortFinder {
                 String drivername = l.substring(0, 21).trim();
                 String[] w = l.split(" +");
                 if (w.length >= 5 && w[w.length - 1].equals("serial")) {
-                    LogUtils.d(TAG, "Found new driver " + drivername + " on " + w[w.length - 4]);
+                    LogUtil.d(TAG, "Found new driver " + drivername + " on " + w[w.length - 4]);
                     this.mDrivers.add(new Driver(drivername, w[w.length - 4]));
                 }
             }
@@ -107,7 +107,7 @@ public class SerialPortFinder {
 
                 for (int i = 0; i < files.length; ++i) {
                     if (files[i].getAbsolutePath().startsWith(this.mDeviceRoot)) {
-                        LogUtils.d("SerialPort", "Found new device: " + files[i]);
+                        LogUtil.d("SerialPort", "Found new device: " + files[i]);
                         this.mDevices.add(files[i]);
                     }
                 }

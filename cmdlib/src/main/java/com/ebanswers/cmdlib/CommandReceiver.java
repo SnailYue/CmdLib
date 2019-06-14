@@ -4,8 +4,8 @@ package com.ebanswers.cmdlib;
 import com.ebanswers.cmdlib.protocol.ProtocolFactory;
 import com.ebanswers.cmdlib.protocol.bean.PCFrames;
 import com.ebanswers.cmdlib.utils.ByteUtil;
-import com.ebanswers.cmdlib.utils.HexUtils;
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.HexUtil;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import org.json.JSONException;
 
@@ -43,7 +43,7 @@ public class CommandReceiver {
             public void run() {
                 finalData = new byte[buffer.length];
                 finalData = buffer;
-                LogUtils.d(TAG, "analyzeData: " + HexUtils.bytesToHexString(finalData));
+                LogUtil.d(TAG, "analyzeData: " + HexUtil.bytesToHexString(finalData));
                 int index = 0;
                 byte serial = 0;
                 int dataLen;
@@ -114,7 +114,7 @@ public class CommandReceiver {
      * @param data
      */
     public void analyzeAllStatus(int len, byte[] data) {
-        LogUtils.d(TAG, "analyzeAllStatus: " + HexUtils.bytesToHexString(data));
+        LogUtil.d(TAG, "analyzeAllStatus: " + HexUtil.bytesToHexString(data));
         int sizeF = protocolFactory.getProtocolUpFunctions() == null ? 0 : protocolFactory.getProtocolUpFunctions().size();
         int index = 0;
         byte id = 0;
@@ -192,7 +192,7 @@ public class CommandReceiver {
      * @return
      */
     private byte[] getFunctionByte(int index, int pcflen) {
-        LogUtils.d(TAG, "getValBytes: index = " + index + " ,pcflen = " + pcflen);
+        LogUtil.d(TAG, "getValBytes: index = " + index + " ,pcflen = " + pcflen);
         byte[] data = new byte[pcflen];
         for (int i = 0; i < pcflen; i++) {
             data[i] = finalData[i + index];

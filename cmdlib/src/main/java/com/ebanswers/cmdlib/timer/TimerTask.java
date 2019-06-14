@@ -1,8 +1,7 @@
 package com.ebanswers.cmdlib.timer;
 
 
-
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -33,6 +32,10 @@ public class TimerTask {
     private volatile boolean isRun = false;
     private volatile boolean isStop = true;
 
+    public TimerTask() throws Exception {
+        throw new Exception("mType、mTimerTaskListener is null?");
+    }
+
     public TimerTask(String mType, long mDuring, TimerTaskListener mTimerTaskListener) {
         this.mType = mType;
         this.mDuring = mDuring;
@@ -43,7 +46,7 @@ public class TimerTask {
      * 开始计时
      */
     public synchronized void start(int totalTime) {
-        LogUtils.d(TAG, "start: ");
+        LogUtil.d(TAG, "start: ");
         this.mTotalTime = totalTime;
         if (isStop) {
             isStop = false;
@@ -58,7 +61,7 @@ public class TimerTask {
      * 结束倒计时
      */
     public synchronized void stop() {
-        LogUtils.d(TAG, "stop: ");
+        LogUtil.d(TAG, "stop: ");
         if (!isStop) {
             isRun = false;
             mTotalTime = 0;
@@ -77,7 +80,7 @@ public class TimerTask {
      * 暂停倒计时
      */
     public synchronized void pause() {
-        LogUtils.d(TAG, "pause: ");
+        LogUtil.d(TAG, "pause: ");
         if (isRun) {
             isRun = false;
             if (null != timerFuture) {
@@ -94,7 +97,7 @@ public class TimerTask {
      * 唤醒倒计时
      */
     public synchronized void resume() {
-        LogUtils.d(TAG, "resume: ");
+        LogUtil.d(TAG, "resume: ");
         if (!isRun) {
             isRun = true;
             timerWork(1000);
@@ -116,13 +119,13 @@ public class TimerTask {
             @Override
             public void run() {
                 if (mTotalTime == 0) {
-                    LogUtils.d(TAG, "run: time = " + mTotalTime);
+                    LogUtil.d(TAG, "run: time = " + mTotalTime);
                     stop();
                     return;
                 }
                 if (mTotalTime > 0) {
                     mTotalTime--;
-                    LogUtils.d(TAG, "run: time = " + mTotalTime + ",  type = " + mType);
+                    LogUtil.d(TAG, "run: time = " + mTotalTime + ",  type = " + mType);
                 }
                 if (mTimerTaskListener != null) {
                     mTimerTaskListener.onTick(mTotalTime, mType);
@@ -131,7 +134,7 @@ public class TimerTask {
         };
 
         timerFuture = Executors.newScheduledThreadPool(1)
-                .scheduleAtFixedRate(timerRunnable, delayed, 1, TimeUnit.SECONDS);
+                .scheduleAtFixedRate(timerRunnable, delayed, mDuring, TimeUnit.MILLISECONDS);
 
         if (mTimerTaskListener != null) {
             mTimerTaskListener.onStart(mTotalTime, mType);
@@ -149,6 +152,7 @@ public class TimerTask {
 
     /**
      * 是否处于暂停状态
+     *
      * @return
      */
     public boolean isPause() {
@@ -157,6 +161,7 @@ public class TimerTask {
 
     /**
      * 是否计时完成
+     *
      * @return
      */
     public boolean isFinish() {

@@ -11,10 +11,11 @@ import com.ebanswers.cmdlib.protocol.bean.PCFrames;
 import com.ebanswers.cmdlib.protocol.bean.PCmdType;
 import com.ebanswers.cmdlib.protocol.bean.PTFunction;
 import com.ebanswers.cmdlib.utils.ByteUtil;
-import com.ebanswers.cmdlib.utils.CRC16;
-import com.ebanswers.cmdlib.utils.CRC8;
-import com.ebanswers.cmdlib.utils.HexUtils;
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.CRC16Util;
+import com.ebanswers.cmdlib.utils.CRC8Util;
+import com.ebanswers.cmdlib.utils.SUMUtil;
+import com.ebanswers.cmdlib.utils.HexUtil;
+import com.ebanswers.cmdlib.utils.LogUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,6 +30,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 
 /**
@@ -41,24 +43,24 @@ public class ProtocolFactory {
     /**
      * 全功能集
      */
-    private ConcurrentHashMap<String, PTFunction> allFunctionsMap = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Integer, String> allFunctionsNoMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<String, PTFunction> allFunctionsMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<Integer, String> allFunctionsNoMap = new ConcurrentHashMap<>();
 
     /**
      * 上行帧功能集
      */
-    private ConcurrentHashMap<String, PTFunction> upFunctionsMap = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Integer, String> upFunctionsNoMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<String, PTFunction> upFunctionsMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<Integer, String> upFunctionsNoMap = new ConcurrentHashMap<>();
     /**
      * 下行帧功能集
      */
-    private ConcurrentHashMap<String, PTFunction> downFunctionsMap = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Integer, String> downFunctionsNoMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<String, PTFunction> downFunctionsMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<Integer, String> downFunctionsNoMap = new ConcurrentHashMap<>();
 
     /**
      * 帧格式相关配置
      */
-    public ConcurrentHashMap<Integer, PCFrames> pcFrameMap = new ConcurrentHashMap<>();
+    public ConcurrentMap<Integer, PCFrames> pcFrameMap = new ConcurrentHashMap<>();
 
     public LinkedList<Byte> commands = new LinkedList<>();
 
@@ -178,7 +180,6 @@ public class ProtocolFactory {
     private static boolean isSupportSerialNumber;
 
     public ProtocolFactory() {
-
     }
 
     /**
@@ -253,18 +254,16 @@ public class ProtocolFactory {
                 for (int i = 0; i < mFrameCount; i++) {
                     PCFrames pcFrames = framesList.get(i);
                     pcFrameMap.put(pcFrames.getPid(), pcFrames);
-                    LogUtils.d(TAG, "initFrames: " + pcFrames.getPid() + "," + pcFrames.getLength());
+                    LogUtil.d(TAG, "initFrames: " + pcFrames.getPid() + "," + pcFrames.getLength());
 
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_LENGTH)) {
                         mFrameDownAllLength = pcFrames.getCmdLength().getDownLength();
                         mFrameUpAllLength = pcFrames.getCmdLength().getUpLength();
                     }
-
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_HEAD)) {
-                        mFrameHead = HexUtils.hexStr2Bytes(pcFrames.getCmdHead().getSendCode());
-                        mFrameHeadResponse = HexUtils.hexStr2Bytes(pcFrames.getCmdHead().getResponseCode());
+                        mFrameHead = HexUtil.hexStr2Bytes(pcFrames.getCmdHead().getSendCode());
+                        mFrameHeadResponse = HexUtil.hexStr2Bytes(pcFrames.getCmdHead().getResponseCode());
                     }
-
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_CHECKSUM)) {
                         mCheckUpIndex = pcFrames.getChecksum().getUpStartPid();
                         mCheckUpEndIndex = pcFrames.getChecksum().getUpEndPid();
@@ -273,7 +272,6 @@ public class ProtocolFactory {
                         mCheckLen = pcFrames.getLength();
                         mCheckType = pcFrames.getChecksum().getType();
                     }
-
                     if (pcFrames.getPtype().equals(ConstansCommand.FRAME_UP_CMDDATA)) {
                         mFrameUpDataLen = pcFrames.getLength();
                     }
@@ -286,7 +284,7 @@ public class ProtocolFactory {
                         }
                     }
                 }
-                LogUtils.d(TAG, "initFrames: mFrameUpAllLength:" + mFrameUpAllLength + " ,mFrameDownAllLength" + mFrameDownAllLength);
+                LogUtil.d(TAG, "initFrames: mFrameUpAllLength:" + mFrameUpAllLength + " ,mFrameDownAllLength" + mFrameDownAllLength);
             }
         }
     }
@@ -442,7 +440,7 @@ public class ProtocolFactory {
     }
 
     /**
-     * 是不是帧头
+     * 帧头校验
      *
      * @param datas
      * @param start
@@ -474,18 +472,18 @@ public class ProtocolFactory {
      * @return
      */
     public boolean checkData(LinkedList<Byte> data, int checkindex, int checkendindex, int len) {
-        LogUtils.d(TAG, "checkData: size = " + data.size() + ",checkendindex = " + checkendindex + " checkindex = " + checkindex);
+        LogUtil.d(TAG, "checkData: size = " + data.size() + ",checkendindex = " + checkendindex + " checkindex = " + checkindex);
         int check = 0;
         switch (mCheckType) {
             case ConstansCommand.CHECK_SUM:
-                check = getCheckSUM(data, checkindex, checkendindex);
+                check = SUMUtil.getCheckSUM(data, checkindex, checkendindex);
                 check = (check & 0xff);
                 break;
             case ConstansCommand.CHECK_CRC8:
-                check = CRC8.calcCrc8(data, checkindex, checkendindex);
+                check = CRC8Util.calcCrc8(data, checkindex, checkendindex);
                 break;
             case ConstansCommand.CHECK_CRC16:
-                check = CRC16.calcCrc16(data, checkindex, checkendindex);
+                check = CRC16Util.calcCrc16(data, checkindex, checkendindex);
                 break;
             default:
                 break;
@@ -495,25 +493,6 @@ public class ProtocolFactory {
             oldcheck += (((data.get(i + checkendindex) & 0xff) << (i - 1) * 8));
         }
         return oldcheck == check;
-    }
-
-    /**
-     * 累加方式校验方式
-     *
-     * @param datas
-     * @param start_pid
-     * @param end_pid
-     * @return
-     */
-    private byte getCheckSUM(LinkedList<Byte> datas, int start_pid, int end_pid) {
-        byte data = 0;
-        if (end_pid >= datas.size()) {
-            return 0;
-        }
-        for (int i = start_pid; i <= end_pid; i++) {
-            data += datas.get(i);
-        }
-        return data;
     }
 
     /**
@@ -556,7 +535,7 @@ public class ProtocolFactory {
         byte[] cmd = new byte[0];
         try {
             cmd = getCmdData(type, command, isResponse, isresend);
-            LogUtils.d(TAG, "getCommands: " + HexUtils.bytesToHexString(cmd));
+            LogUtil.d(TAG, "getCommands: " + HexUtil.bytesToHexString(cmd));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -568,7 +547,7 @@ public class ProtocolFactory {
                 switch (pcFrame.getPtype()) {
                     case ConstansCommand.FRAME_HEAD:
                         String data = isResponse ? pcFrame.getCmdHead().getResponseCode() : pcFrame.getCmdHead().getSendCode();
-                        pcfData = HexUtils.hexStr2Bytes(data);
+                        pcfData = HexUtil.hexStr2Bytes(data);
                         break;
                     case ConstansCommand.FRAME_SERIAL_NUMBER:
                         pcfData = ByteUtil.putInt(pcfData, serial);
@@ -593,7 +572,7 @@ public class ProtocolFactory {
                         break;
                     case ConstansCommand.FRAME_FOOTER:
                         String foot = isResponse ? pcFrame.getCmdFooter().getResponseCode() : pcFrame.getCmdFooter().getSendCode();
-                        pcfData = HexUtils.hexStr2Bytes(foot);
+                        pcfData = HexUtil.hexStr2Bytes(foot);
                         break;
                     default:
                         break;
@@ -603,11 +582,11 @@ public class ProtocolFactory {
                         commands.add(pcfData[j]);
                     }
                 } else {
-                    LogUtils.e(TAG, "getCommands: Frame data length error" + pcFrame.getPtype());
+                    LogUtil.e(TAG, "getCommands: Frame data length error" + pcFrame.getPtype());
                 }
             }
         }
-        LogUtils.d(TAG, "getCommands: Commands = " + commands.size());
+        LogUtil.d(TAG, "getCommands: Commands = " + commands.size());
         byte[] data = new byte[commands.size()];
         for (int i = 0; i < commands.size(); i++) {
             data[i] = commands.get(i);
@@ -691,13 +670,13 @@ public class ProtocolFactory {
         byte[] data = new byte[mCheckLen];
         switch (mCheckType) {
             case ConstansCommand.CHECK_SUM:
-                data[0] = getCheckSUM(datas, startIndex, endIndex);
+                data[0] = SUMUtil.getCheckSUM(datas, startIndex, endIndex);
                 break;
             case ConstansCommand.CHECK_CRC8:
-                data[0] = CRC8.calcCrc8(datas, startIndex, endIndex);
+                data[0] = CRC8Util.calcCrc8(datas, startIndex, endIndex);
                 break;
             case ConstansCommand.CHECK_CRC16:
-                int check = CRC16.calcCrc16(datas, startIndex, endIndex);
+                int check = CRC16Util.calcCrc16(datas, startIndex, endIndex);
                 data[0] = (byte) (check & 0x00FF);
                 if (mCheckLen == 2) {
                     data[1] = (byte) ((check & 0xFF00) >> 8);
@@ -794,7 +773,7 @@ public class ProtocolFactory {
         for (int i = 0; i < cmd.size(); i++) {
             data[i] = cmd.get(i);
         }
-        LogUtils.d(TAG, "getCmdControlData: " + HexUtils.bytesToHexString(data));
+        LogUtil.d(TAG, "getCmdControlData: " + HexUtil.bytesToHexString(data));
         return data;
     }
 
@@ -957,7 +936,7 @@ public class ProtocolFactory {
     public boolean isSupportSerialNumber() {
         if (null != this.pcFrameMap && pcFrameMap.size() > 0) {
             for (int i = 0; i < pcFrameMap.size(); i++) {
-                if (pcFrameMap.get(i + 1).getPtype().equals("SerialNumber")) {
+                if (pcFrameMap.get(i + 1).getPtype().equals(ConstansCommand.FRAME_SERIAL_NUMBER)) {
                     isSupportSerialNumber = true;
                     break;
                 } else {
@@ -973,7 +952,7 @@ public class ProtocolFactory {
      *
      * @return
      */
-    public ConcurrentHashMap<String, PTFunction> getAllFunctionsMap() {
+    public ConcurrentMap<String, PTFunction> getAllFunctionsMap() {
         return allFunctionsMap;
     }
 
@@ -997,9 +976,10 @@ public class ProtocolFactory {
 
     /**
      * 获取帧类型集合
+     *
      * @return
      */
-    public SparseArray<PCmdType> getpCmdTypes(){
+    public SparseArray<PCmdType> getpCmdTypes() {
         return pCmdTypes;
     }
 }

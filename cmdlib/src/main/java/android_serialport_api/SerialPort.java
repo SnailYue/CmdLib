@@ -2,7 +2,7 @@ package android_serialport_api;
 
 import android.util.Log;
 
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -27,7 +27,7 @@ public class SerialPort {
     public SerialPort(File device, int baudrate, int flags) throws SecurityException, IOException {
         if (!device.canRead() || !device.canWrite()) {
             try {
-                LogUtils.d("SerialPort", "create SerialPort!");
+                LogUtil.d("SerialPort", "create SerialPort!");
                 Process su = Runtime.getRuntime().exec("/system/bin/su");
                 String cmd = "chmod 777 " + device.getAbsolutePath() + "\n" + "exit\n";
                 su.getOutputStream().write(cmd.getBytes());

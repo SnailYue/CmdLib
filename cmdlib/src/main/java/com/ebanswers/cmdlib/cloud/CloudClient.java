@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import com.ebanswers.cmdlib.ConstansCommand;
 import com.ebanswers.cmdlib.protocol.ProtocolFactory;
 import com.ebanswers.cmdlib.utils.FileUtil;
-import com.ebanswers.cmdlib.utils.HexUtils;
-import com.ebanswers.cmdlib.utils.LogUtils;
+import com.ebanswers.cmdlib.utils.HexUtil;
+import com.ebanswers.cmdlib.utils.LogUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,7 +81,7 @@ public class CloudClient {
 
     //Socket连接
     public void connectSocket(){
-        LogUtils.d(TAG, "connectSocket: ");
+        LogUtil.d(TAG, "connectSocket: ");
         interruptSocket();
         try {
             mSocket = new Socket(mSocketUrl,mSocketPort);
@@ -116,7 +116,7 @@ public class CloudClient {
             }
             data[26] = (byte) sum;
             PrintWriter pw = new PrintWriter(mOutputStream);
-            pw.write(HexUtils.bytesToHexString(data));
+            pw.write(HexUtil.bytesToHexString(data));
             pw.flush();
         }
     }
@@ -143,14 +143,14 @@ public class CloudClient {
 
     //接收服务端的帧指令
     private void initReadConnect() {
-        LogUtils.d(TAG, "initReadConnect()");
+        LogUtil.d(TAG, "initReadConnect()");
         byte[] data = new byte[100];
         while (mSocket != null && !mSocket.isClosed() && !mSocket.isInputShutdown()) {
             if (mInputStream != null) {
                 try {
                     serialNumber = data[2];
                     int length = mInputStream.read(data);
-                    LogUtils.d(TAG, "initReadConnect: " + HexUtils.bytesToHexString(data));
+                    LogUtil.d(TAG, "initReadConnect: " + HexUtil.bytesToHexString(data));
                     onSocketReadListener.onSocketReadListener(length, data);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -181,7 +181,7 @@ public class CloudClient {
                 if (reConnect <= 3){
                     connectSocket();
                 }
-                LogUtils.d(TAG, "sendCommandMsg: failed");
+                LogUtil.d(TAG, "sendCommandMsg: failed");
             }
         }
     }
@@ -202,7 +202,7 @@ public class CloudClient {
             allData[6 + i] = data[i];
         }
         allData[22] = getCheckSUM(allData,0,allData.length);
-        LogUtils.d(TAG, "sendDataCommands: " + HexUtils.bytesToHexString(allData));
+        LogUtil.d(TAG, "sendDataCommands: " + HexUtil.bytesToHexString(allData));
         sendCommands(allData);
     }
 
@@ -224,11 +224,11 @@ public class CloudClient {
             if (socket != null){
                 socket.sendUrgentData(0xFF);//发送1个字节的紧急数据，默认情况下，服务器端没有开启紧急数据处理，不影响正常通信
             }
-            LogUtils.d(TAG, "isServerClose false");
+            LogUtil.d(TAG, "isServerClose false");
             return false;
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtils.d(TAG, "isServerClose true");
+            LogUtil.d(TAG, "isServerClose true");
             return true;
         }
     }
@@ -252,7 +252,7 @@ public class CloudClient {
         @Override
         public void onReceive(Context context, Intent intent) {
             connectSocket();
-            LogUtils.d(TAG, "connectService:WifiRecevier");
+            LogUtil.d(TAG, "connectService:WifiRecevier");
         }
     }
 }
